@@ -9,6 +9,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('welcome');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
