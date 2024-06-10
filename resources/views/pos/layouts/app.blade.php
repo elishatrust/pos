@@ -1,219 +1,229 @@
 
 <!doctype html>
-<html lang="en">
-
+<html class="no-js " lang="en">
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ !empty(strtoupper($data['header']).' | '.strtoupper($data['title'])) ? strtoupper($data['header']).' | '.strtoupper($data['title']) : ''}}</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="">
+<title>{{ !empty(strtoupper($data['header']).' | '.strtoupper($data['title'])) ? strtoupper($data['header']).' | '.strtoupper($data['title']) : ''}}</title>
 
-	<!--favicon-->
-	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png"/>
-	<!--plugins-->
-	<link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
-	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-	<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
-	<link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet"/>
-	<link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-	<!-- loader-->
-	<link href="assets/css/pace.min.css" rel="stylesheet"/>
-	<script src="assets/js/pace.min.js"></script>
-	<!-- Bootstrap CSS -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
-	<link href="assets/css/app.css" rel="stylesheet">
-	<link href="assets/css/icons.css" rel="stylesheet">
-	<!-- Theme Style CSS -->
-	<link rel="stylesheet" href="assets/css/dark-theme.css"/>
-	<link rel="stylesheet" href="assets/css/semi-dark.css"/>
-	<link rel="stylesheet" href="assets/css/header-colors.css"/>
-	<title>Syndron - Bootstrap 5 Admin Dashboard Template</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/morrisjs/morris.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
+<link rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css') }}">
+
+<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/flash.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/color_skins.css') }}">
+
+<script src="{{ asset('assets/plugins/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('assets/plugins/jquery.min.js')}}"></script>
 </head>
+<body class="theme-black">
 
-<body>
+<div class="overlay_menu">
+    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-close"></i></button>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="card">
+                <div class="body">
+                    <div class="input-group m-b-0">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="card links">
+                <div class="body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h6>App</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="mail-inbox.html">Inbox</a></li>
+                                <li><a href="chat.html">Chat</a></li>
+                                <li><a href="events.html">Calendar</a></li>
+                                <li><a href="file-dashboard.html">File Manager</a></li>
+                                <li><a href="contact.html">Contact list</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h6>User Interface (UI)</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="ui_kit.html">UI KIT</a></li>
+                                <li><a href="tabs.html">Tabs</a></li>
+                                <li><a href="range-sliders.html">Range Sliders</a></li>
+                                <li><a href="modals.html">Modals</a></li>
+                                <li><a href="alerts.html">Alerts</a></li>
+                                <li><a href="dialogs.html">Dialogs</a></li>
+                                <li><a href="collapse.html">Collapse</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h6>Sample Pages</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="image-gallery.html">Image Gallery</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="timeline.html">Timeline</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="invoices.html">Invoices</a></li>
+                                <li><a href="faqs.html">FAQs</a></li>
+                                <li><a href="search-results.html">Search Results</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h6>About</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="../../../../thememakker.com/about/index.html" target="_blank">About</a></li>
+                                <li><a href="../../../../thememakker.com/contact/index.html" target="_blank">Contact Us</a></li>
+                                <li><a href="../../../../thememakker.com/admin-templates/index.html" target="_blank">Admin Templates</a></li>
+                                <li><a href="../../../../thememakker.com/services/index.html" target="_blank">Services</a></li>
+                                <li><a href="../../../../thememakker.com/portfolio/index.html" target="_blank">Portfolio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12">
+                <div class="social">
+                    <a class="icon" href="../../../../www.facebook.com/thememakkerteam.html" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
+                    <a class="icon" href="../../../../www.behance.net/thememakker.html" target="_blank"><i class="zmdi zmdi-behance"></i></a>
+                    <a class="icon" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a>
+                    <a class="icon" href="javascript:void(0);"><i class="zmdi zmdi-linkedin"></i></a>
+                    <p>Coded by WrapTheme<br> Designed by <a href="../../../../thememakker.com/index.html" target="_blank">thememakker.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay"></div>
 
-	<div class="wrapper">
+<!-- Sidebar -->
+@include('pos.layouts.sidebar')
 
-		@include('pos.layouts.sidebar')
-
-		@include('pos.layouts.header')
-
-        @yield('content')
-
-		 <div class="overlay toggle-icon"></div>
-
-		  <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-
-          @include('pos.layouts.footer')
-
-	</div>
-	<!--end wrapper-->
+<!-- Main Content -->
+@yield('content')
 
 
-	<!-- search modal -->
-    <div class="modal" id="SearchModal" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
-		  <div class="modal-content">
-			<div class="modal-header gap-2">
-			  <div class="position-relative popup-search w-100">
-				<input class="form-control form-control-lg ps-5 border border-3 border-primary" type="search" placeholder="Search">
-				<span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-4"><i class='bx bx-search'></i></span>
-			  </div>
-			  <button type="button" class="btn-close d-md-none" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="search-list">
-				   <p class="mb-1">Html Templates</p>
-				   <div class="list-group">
-					  <a href="javascript:;" class="list-group-item list-group-item-action active align-items-center d-flex gap-2 py-1"><i class='bx bxl-angular fs-4'></i>Best Html Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-vuejs fs-4'></i>Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-magento fs-4'></i>Responsive Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-shopify fs-4'></i>eCommerce Html Templates</a>
-				   </div>
-				   <p class="mb-1 mt-3">Web Designe Company</p>
-				   <div class="list-group">
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-windows fs-4'></i>Best Html Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-dropbox fs-4' ></i>Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-opera fs-4'></i>Responsive Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-wordpress fs-4'></i>eCommerce Html Templates</a>
-				   </div>
-				   <p class="mb-1 mt-3">Software Development</p>
-				   <div class="list-group">
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-mailchimp fs-4'></i>Best Html Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-zoom fs-4'></i>Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-sass fs-4'></i>Responsive Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-vk fs-4'></i>eCommerce Html Templates</a>
-				   </div>
-				   <p class="mb-1 mt-3">Online Shoping Portals</p>
-				   <div class="list-group">
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-slack fs-4'></i>Best Html Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-skype fs-4'></i>Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-twitter fs-4'></i>Responsive Html5 Templates</a>
-					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-vimeo fs-4'></i>eCommerce Html Templates</a>
-				   </div>
-				</div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-    <!-- end search modal -->
+<!-- jQuery Core Js -->
+<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/knob.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/jvectormap.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/morrisscripts.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/sparkline.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/doughnut.bundle.js') }}"></script>
+<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
+<script src="{{ asset('assets/js/pages/index.js') }}"></script>
 
 
 
+<div id="forFlash"></div>
+<script type="text/javascript">
+    function showWarningToast(title, message) {
+        Swal.fire({
+            icon: 'warning',
+            title: title,
+            text: message,
+            showConfirmButton: true,
+            timer: 5000
+        });
+    }
 
-	<!--start switcher-->
-	<div class="switcher-wrapper">
-		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
-		</div>
-		<div class="switcher-body">
-			<div class="d-flex align-items-center">
-				<h5 class="mb-0 text-uppercase">Theme Customizer</h5>
-				<button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
-			</div>
-			<hr/>
-			<h6 class="mb-0">Theme Styles</h6>
-			<hr/>
-			<div class="d-flex align-items-center justify-content-between">
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
-					<label class="form-check-label" for="lightmode">Light</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="flexRadioDefault" id="darkmode">
-					<label class="form-check-label" for="darkmode">Dark</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="flexRadioDefault" id="semidark">
-					<label class="form-check-label" for="semidark">Semi Dark</label>
-				</div>
-			</div>
-			<hr/>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" id="minimaltheme" name="flexRadioDefault">
-				<label class="form-check-label" for="minimaltheme">Minimal Theme</label>
-			</div>
-			<hr/>
-			<h6 class="mb-0">Header Colors</h6>
-			<hr/>
-			<div class="header-colors-indigators">
-				<div class="row row-cols-auto g-3">
-					<div class="col">
-						<div class="indigator headercolor1" id="headercolor1"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor2" id="headercolor2"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor3" id="headercolor3"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor4" id="headercolor4"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor5" id="headercolor5"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor6" id="headercolor6"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor7" id="headercolor7"></div>
-					</div>
-					<div class="col">
-						<div class="indigator headercolor8" id="headercolor8"></div>
-					</div>
-				</div>
-			</div>
-			<hr/>
-			<h6 class="mb-0">Sidebar Colors</h6>
-			<hr/>
-			<div class="header-colors-indigators">
-				<div class="row row-cols-auto g-3">
-					<div class="col">
-						<div class="indigator sidebarcolor1" id="sidebarcolor1"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor2" id="sidebarcolor2"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor3" id="sidebarcolor3"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor4" id="sidebarcolor4"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor5" id="sidebarcolor5"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor6" id="sidebarcolor6"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor7" id="sidebarcolor7"></div>
-					</div>
-					<div class="col">
-						<div class="indigator sidebarcolor8" id="sidebarcolor8"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--end switcher-->
-	<!-- Bootstrap JS -->
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
-	<!--plugins-->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-	<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-	<script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-	<script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-	<script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    function showSuccessToast(title, message) {
+        Swal.fire({
+            icon: 'success',
+            title: title,
+            text: message,
+            showConfirmButton: false,
+            timer: 6000
+        });
+    }
 
-	<script src="assets/js/index.js"></script>
-	<!--app JS-->
-	<script src="assets/js/app.js"></script>
+    function showErrorToast(title, message) {
+        Swal.fire({
+            icon: 'error',
+            title: title,
+            text: message,
+            showConfirmButton: true,
+            timer: 10000
+        });
+    }
+
+    function disableBtn(btn, access) {
+
+        if (access) {
+            $('#' + btn).prop("disabled", true);
+            // add spinner to button
+            $('#' + btn).html(
+                `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+            );
+        } else {
+            $('#' + btn).prop("disabled", false);
+            // add spinner to button
+            $('#' + btn).html("Save")
+        }
+
+    }
+
+    function removeSpecialCharacter(text) {
+        var sanitizedValue = text.replace(/[!@#$%^&*()\-_=+\[\]{}|\\;:'",.<script>\/?]/g, "");
+        return sanitizedValue
+    }
+
+    function showFlashMessage(indicator, message) {
+
+        if (indicator == "danger") {
+            $("#forFlash").html('<div id="flash-message"><span class="flashmessage"></span></div>')
+            var flashMessage = document.getElementById('flash-message');
+        }
+        if (indicator == "success") {
+            $("#forFlash").html('<div id="flash-message-success"><span class="flashmessage"></span></div>')
+            var flashMessage = document.getElementById('flash-message-success');
+        }
+        if (indicator == "warning") {
+            $("#forFlash").html('<div id="flash-message-warning"><span class="flashmessage"></span></div>')
+            var flashMessage = document.getElementById('flash-message-warning');
+        }
+
+        var messageElement = flashMessage.querySelector('.flashmessage');
+
+        messageElement.innerText = message;
+        flashMessage.style.display = 'block';
+
+        var secondsLeft = 10;
+        var countdown = setInterval(function() {
+            secondsLeft--;
+
+            if (secondsLeft >= 0) {
+                messageElement.innerText = message + ' (' + secondsLeft + 's)';
+            } else {
+                clearInterval(countdown);
+                flashMessage.style.display = 'none';
+                $("#forFlash").html('')
+            }
+        }, 1000);
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+
+        const formattedDate = `${day}/${month}/${year}`;
+
+        return formattedDate;
+    }
+</script>
+
 </body>
+
 
 </html>

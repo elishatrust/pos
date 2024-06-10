@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [
-                'title' => 'POS System',
+                'title' => 'POS System v1.0',
                 'header' => 'Dashboard'
             ];
         return view('pos.dashboard', compact('data'));

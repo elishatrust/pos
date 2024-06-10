@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function index()
     {
         $data = [
-                'title' => 'POS System',
+                'title' => 'POS System v1.0',
                 'header' => 'Login'
             ];
         return view('auth.login', compact('data'));
@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'success' => false,
+                'status' => 422,
                 'errors' => $validator->errors()
             ], 422);
         }
@@ -38,21 +38,39 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             return response()->json([
-                'success' => true,
+                'status' => 200,
                 'message' => 'Login Successfully',
                 'redirect_url' => route('dashboard')
             ]);
         }
 
         return response()->json([
-            'success' => false,
-            'message' => 'Invalid email or password'
+            'status' => 500,
+            'message' => 'Invalid Email or Password'
         ]);
+    }
+
+    public function resetPassword()
+    {
+        $data = [
+                'title' => 'POS System v1.0',
+                'header' => 'Reset Password'
+            ];
+        return view('auth.reset', compact('data'));
+    }
+
+    public function profile()
+    {
+        $data = [
+                'title' => 'POS System v1.0',
+                'header' => 'My Profile'
+            ];
+        return view('pos.profile', compact('data'));
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login.form');
+        return redirect()->route('login');
     }
 }

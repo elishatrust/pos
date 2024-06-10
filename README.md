@@ -1,3 +1,59 @@
+
+# School Management System | Laravel Project
+
+# Technologies Used
+
+1. PHP - (Laravel Framework)
+2. Javascript - (jQuery, Ajax)
+3. Composer
+4. Nodejs
+5. MySQL Database Management System
+6. Editor - (VS Code)
+
+# Focus
+
+1. Admin
+2. Teacher
+3. Student
+    - Admission Number
+    - Roll Number
+    - Class
+    - First Name
+    - Last Name
+    - Gender
+    - DOB
+    - Caste
+    - Religion
+    - Mobile Number
+    - Admission date
+    - Photo
+    - Blood Group
+    - Height
+    - Weight
+    - E-Mail
+    - Password
+    - Status
+4. Parent
+5. Class
+6. Course
+7. Fee
+
+++++++++++++++++++++++++++++++ || +++++++++++++++++++++++++++++++ || ++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++ || +++++++++++++++++++++++++++++++ || ++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,4 +120,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# pos

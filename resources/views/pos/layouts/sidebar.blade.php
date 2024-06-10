@@ -1,344 +1,460 @@
-<div class="sidebar-wrapper" data-simplebar="true">
-    <div class="sidebar-header">
-        <div>
-            <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-        </div>
-        <div>
-            <h4 class="logo-text">Syndron</h4>
-        </div>
-        <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
-        </div>
-     </div>
-    <!--navigation-->
-    <ul class="metismenu" id="menu">
+<aside id="minileftbar" class="minileftbar">
+    <ul class="menu_list">
         <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-home-alt'></i>
-                </div>
-                <div class="menu-title">Dashboard</div>
-            </a>
-            <ul>
-                <li> <a href="index.html"><i class='bx bx-radio-circle'></i>eCommerce</a>
-                </li>
-                <li> <a href="index2.html"><i class='bx bx-radio-circle'></i>Analytics</a>
-                </li>
-            </ul>
+            <a href="javascript:" class="bars"></a>
+            <a class="navbar-brand" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/logo.svg') }}"
+                    alt="Alpino"></a>
         </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+        <li><a href="javascript:" class="btn_overlay hidden-sm-down"><i class="zmdi zmdi-search"></i></a></li>
+        <li><a href="javascript:" class="menu-sm"><i class="zmdi zmdi-swap"></i></a></li>
+        <li class="menuapp-btn"><a href="javascript:"><i class="zmdi zmdi-apps"></i></a></li>
+        <li class="notifications badgebit">
+            <a href="javascript:">
+                <i class="zmdi zmdi-notifications"></i>
+                <div class="notify">
+                    <span class="heartbit"></span>
+                    <span class="point"></span>
                 </div>
-                <div class="menu-title">Application</div>
-            </a>
-            <ul>
-                <li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>Email</a>
-                </li>
-                <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Chat Box</a>
-                </li>
-                <li> <a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>File Manager</a>
-                </li>
-                <li> <a href="app-contact-list.html"><i class='bx bx-radio-circle'></i>Contatcs</a>
-                </li>
-                <li> <a href="app-to-do.html"><i class='bx bx-radio-circle'></i>Todo List</a>
-                </li>
-                <li> <a href="app-invoice.html"><i class='bx bx-radio-circle'></i>Invoice</a>
-                </li>
-                <li> <a href="app-fullcalender.html"><i class='bx bx-radio-circle'></i>Calendar</a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-label">UI Elements</li>
-        <li>
-            <a href="widgets.html">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
-                </div>
-                <div class="menu-title">Widgets</div>
             </a>
         </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+        <li class="task badgebit">
+            <a href="javascript:">
+                <i class="zmdi zmdi-flag"></i>
+                <div class="notify">
+                    <span class="heartbit"></span>
+                    <span class="point"></span>
                 </div>
-                <div class="menu-title">eCommerce</div>
-            </a>
-            <ul>
-                <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Products</a>
-                </li>
-                <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
-                </li>
-                <li> <a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Add New Products</a>
-                </li>
-                <li> <a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>Orders</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
-                </div>
-                <div class="menu-title">Components</div>
-            </a>
-            <ul>
-                <li> <a href="component-alerts.html"><i class='bx bx-radio-circle'></i>Alerts</a>
-                </li>
-                <li> <a href="component-accordions.html"><i class='bx bx-radio-circle'></i>Accordions</a>
-                </li>
-                <li> <a href="component-badges.html"><i class='bx bx-radio-circle'></i>Badges</a>
-                </li>
-                <li> <a href="component-buttons.html"><i class='bx bx-radio-circle'></i>Buttons</a>
-                </li>
-                <li> <a href="component-cards.html"><i class='bx bx-radio-circle'></i>Cards</a>
-                </li>
-                <li> <a href="component-carousels.html"><i class='bx bx-radio-circle'></i>Carousels</a>
-                </li>
-                <li> <a href="component-list-groups.html"><i class='bx bx-radio-circle'></i>List Groups</a>
-                </li>
-                <li> <a href="component-media-object.html"><i class='bx bx-radio-circle'></i>Media Objects</a>
-                </li>
-                <li> <a href="component-modals.html"><i class='bx bx-radio-circle'></i>Modals</a>
-                </li>
-                <li> <a href="component-navs-tabs.html"><i class='bx bx-radio-circle'></i>Navs & Tabs</a>
-                </li>
-                <li> <a href="component-navbar.html"><i class='bx bx-radio-circle'></i>Navbar</a>
-                </li>
-                <li> <a href="component-paginations.html"><i class='bx bx-radio-circle'></i>Pagination</a>
-                </li>
-                <li> <a href="component-popovers-tooltips.html"><i class='bx bx-radio-circle'></i>Popovers & Tooltips</a>
-                </li>
-                <li> <a href="component-progress-bars.html"><i class='bx bx-radio-circle'></i>Progress</a>
-                </li>
-                <li> <a href="component-spinners.html"><i class='bx bx-radio-circle'></i>Spinners</a>
-                </li>
-                <li> <a href="component-notifications.html"><i class='bx bx-radio-circle'></i>Notifications</a>
-                </li>
-                <li> <a href="component-avtars-chips.html"><i class='bx bx-radio-circle'></i>Avatrs & Chips</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-repeat"></i>
-                </div>
-                <div class="menu-title">Content</div>
-            </a>
-            <ul>
-                <li> <a href="content-grid-system.html"><i class='bx bx-radio-circle'></i>Grid System</a>
-                </li>
-                <li> <a href="content-typography.html"><i class='bx bx-radio-circle'></i>Typography</a>
-                </li>
-                <li> <a href="content-text-utilities.html"><i class='bx bx-radio-circle'></i>Text Utilities</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
-                </div>
-                <div class="menu-title">Icons</div>
-            </a>
-            <ul>
-                <li> <a href="icons-line-icons.html"><i class='bx bx-radio-circle'></i>Line Icons</a>
-                </li>
-                <li> <a href="icons-boxicons.html"><i class='bx bx-radio-circle'></i>Boxicons</a>
-                </li>
-                <li> <a href="icons-feather-icons.html"><i class='bx bx-radio-circle'></i>Feather Icons</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="form-froala-editor.html">
-                <div class="parent-icon"><i class='bx bx-code-alt'></i>
-                </div>
-                <div class="menu-title">Froala Editor</div>
             </a>
         </li>
-        <li class="menu-label">Forms & Tables</li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
-                </div>
-                <div class="menu-title">Forms</div>
-            </a>
-            <ul>
-                <li> <a href="form-elements.html"><i class='bx bx-radio-circle'></i>Form Elements</a>
-                </li>
-                <li> <a href="form-input-group.html"><i class='bx bx-radio-circle'></i>Input Groups</a>
-                </li>
-                <li> <a href="form-radios-and-checkboxes.html"><i class='bx bx-radio-circle'></i>Radios & Checkboxes</a>
-                </li>
-                <li> <a href="form-layouts.html"><i class='bx bx-radio-circle'></i>Forms Layouts</a>
-                </li>
-                <li> <a href="form-validations.html"><i class='bx bx-radio-circle'></i>Form Validation</a>
-                </li>
-                <li> <a href="form-wizard.html"><i class='bx bx-radio-circle'></i>Form Wizard</a>
-                </li>
-                <li> <a href="form-text-editor.html"><i class='bx bx-radio-circle'></i>Text Editor</a>
-                </li>
-                <li> <a href="form-file-upload.html"><i class='bx bx-radio-circle'></i>File Upload</a>
-                </li>
-                <li> <a href="form-date-time-pickes.html"><i class='bx bx-radio-circle'></i>Date Pickers</a>
-                </li>
-                <li> <a href="form-select2.html"><i class='bx bx-radio-circle'></i>Select2</a>
-                </li>
-                <li> <a href="form-repeater.html"><i class='bx bx-radio-circle'></i>Form Repeater</a>
-                </li>
-            </ul>
+        <li><a href="events.html" title="Events"><i class="zmdi zmdi-calendar"></i></a></li>
+        <li><a href="mail-inbox.html" title="Inbox"><i class="zmdi zmdi-email"></i></a></li>
+        <li><a href="contact.html" title="Contact List"><i class="zmdi zmdi-account-box-phone"></i></a></li>
+        <li><a href="chat.html"><i class="zmdi zmdi-comments"></i></a></li>
+        <li><a href="javascript:" class="fullscreen" data-provide="fullscreen"><i class="zmdi zmdi-fullscreen"></i></a>
         </li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-grid-alt"></i>
-                </div>
-                <div class="menu-title">Tables</div>
-            </a>
-            <ul>
-                <li> <a href="table-basic-table.html"><i class='bx bx-radio-circle'></i>Basic Table</a>
-                </li>
-                <li> <a href="table-datatable.html"><i class='bx bx-radio-circle'></i>Data Table</a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-label">Pages</li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-lock"></i>
-                </div>
-                <div class="menu-title">Authentication</div>
-            </a>
-            <ul>
-                <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Basic</a>
-                    <ul>
-                        <li><a href="auth-basic-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign In</a></li>
-                        <li><a href="auth-basic-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign Up</a></li>
-                        <li><a href="auth-basic-forgot-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                        <li><a href="auth-basic-reset-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Reset Password</a></li>
-                    </ul>
-                </li>
-                <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Cover</a>
-                    <ul>
-                        <li><a href="auth-cover-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign In</a></li>
-                        <li><a href="auth-cover-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign Up</a></li>
-                        <li><a href="auth-cover-forgot-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                        <li><a href="auth-cover-reset-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Reset Password</a></li>
-                    </ul>
-                </li>
-                <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>With Header Footer</a>
-                    <ul>
-                        <li><a href="auth-header-footer-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign In</a></li>
-                        <li><a href="auth-header-footer-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign Up</a></li>
-                        <li><a href="auth-header-footer-forgot-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                        <li><a href="auth-header-footer-reset-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Reset Password</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="user-profile.html">
-                <div class="parent-icon"><i class="bx bx-user-circle"></i>
-                </div>
-                <div class="menu-title">User Profile</div>
-            </a>
-        </li>
-        <li>
-            <a href="timeline.html">
-                <div class="parent-icon"> <i class="bx bx-video-recording"></i>
-                </div>
-                <div class="menu-title">Timeline</div>
-            </a>
-        </li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-error"></i>
-                </div>
-                <div class="menu-title">Errors</div>
-            </a>
-            <ul>
-                <li> <a href="errors-404-error.html" target="_blank"><i class='bx bx-radio-circle'></i>404 Error</a>
-                </li>
-                <li> <a href="errors-500-error.html" target="_blank"><i class='bx bx-radio-circle'></i>500 Error</a>
-                </li>
-                <li> <a href="errors-coming-soon.html" target="_blank"><i class='bx bx-radio-circle'></i>Coming Soon</a>
-                </li>
-                <li> <a href="error-blank-page.html" target="_blank"><i class='bx bx-radio-circle'></i>Blank Page</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="faq.html">
-                <div class="parent-icon"><i class="bx bx-help-circle"></i>
-                </div>
-                <div class="menu-title">FAQ</div>
-            </a>
-        </li>
-        <li>
-            <a href="pricing-table.html">
-                <div class="parent-icon"><i class="bx bx-diamond"></i>
-                </div>
-                <div class="menu-title">Pricing</div>
-            </a>
-        </li>
-        <li class="menu-label">Charts & Maps</li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-line-chart"></i>
-                </div>
-                <div class="menu-title">Charts</div>
-            </a>
-            <ul>
-                <li> <a href="charts-apex-chart.html"><i class='bx bx-radio-circle'></i>Apex</a>
-                </li>
-                <li> <a href="charts-chartjs.html"><i class='bx bx-radio-circle'></i>Chartjs</a>
-                </li>
-                <li> <a href="charts-highcharts.html"><i class='bx bx-radio-circle'></i>Highcharts</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-map-alt"></i>
-                </div>
-                <div class="menu-title">Maps</div>
-            </a>
-            <ul>
-                <li> <a href="map-google-maps.html"><i class='bx bx-radio-circle'></i>Google Maps</a>
-                </li>
-                <li> <a href="map-vector-maps.html"><i class='bx bx-radio-circle'></i>Vector Maps</a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-label">Others</li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-menu"></i>
-                </div>
-                <div class="menu-title">Menu Levels</div>
-            </a>
-            <ul>
-                <li> <a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Level One</a>
-                    <ul>
-                        <li> <a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Level Two</a>
-                            <ul>
-                                <li> <a href="javascript:;"><i class='bx bx-radio-circle'></i>Level Three</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-folder"></i>
-                </div>
-                <div class="menu-title">Documentation</div>
-            </a>
-        </li>
-        <li>
-            <a href="https://themeforest.net/user/codervent" target="_blank">
-                <div class="parent-icon"><i class="bx bx-support"></i>
-                </div>
-                <div class="menu-title">Support</div>
-            </a>
+        <li class="power">
+            <a href="javascript:" title="Settings" class="js-right-sidebar"><i
+                    class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+            <a href="{{ route('logout') }}" title="Logout" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
         </li>
     </ul>
-    <!--end navigation-->
-</div>
+</aside>
+
+<aside class="right_menu">
+    <div class="menu-app">
+        <div class="slim_scroll">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>App</strong> Menu</h2>
+                </div>
+                <div class="body">
+                    <ul class="list-unstyled menu">
+                        <li><a href="events.html"><i class="zmdi zmdi-calendar-note"></i><span>Calendar</span></a></li>
+                        <li><a href="file-dashboard.html"><i class="zmdi zmdi-file-text"></i><span>File Manager</span></a></li>
+                        <li><a href="blog-dashboard.html"><i class="zmdi zmdi-blogger"></i><span>Blog</span></a></li>
+                        <li><a href="javascript:"><i class="zmdi zmdi-arrows"></i><span>Notes</span></a></li>
+                        <li><a href="javascript:"><i class="zmdi zmdi-view-column"></i><span>Taskboard</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notif-menu">
+        <div class="slim_scroll">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Messages</strong></h2>
+                </div>
+                <div class="body">
+                    <ul class="messages list-unstyled">
+                        <li>
+                            <a href="javascript:">
+                                <div class="media">
+                                    <img class="media-object rounded-circle" src="{{ asset('assets/avatar.jpg') }}" alt="">
+                                    <div class="media-body">
+                                        <span class="name">Alexander <small class="time">35min ago</small></span>
+                                        <p class="message">New tasks needs to be done</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:">
+                                <div class="media">
+                                    <img class="media-object rounded-circle" src="{{ asset('assets/avatar.jpg') }}" alt="">
+                                    <div class="media-body">
+                                        <span class="name">Grayson <small class="time">1hr ago</small></span>
+                                        <p class="message">New tasks needs to be done</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:">
+                                <div class="media">
+                                    <img class="media-object rounded-circle" src="{{ asset('assets/avatar.jpg') }}" alt="">
+                                    <div class="media-body">
+                                        <span class="name">Sophia <small class="time">31min ago</small></span>
+                                        <p class="message">New tasks needs to be done</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Notifications</strong></h2>
+                </div>
+                <div class="body">
+                    <ul class="notification list-unstyled">
+                        <li>
+                            <i class="zmdi zmdi-balance-wallet text-success"></i>
+                            <strong>+$30 New sale</strong>
+                            <p><a href="javascript:">Admin Template</a></p>
+                            <small class="text-muted">7 min ago</small>
+                        </li>
+                        <li>
+                            <i class="zmdi zmdi-edit text-info"></i>
+                            <strong>You Edited file</strong>
+                            <p><a href="javascript:">Docs.doc</a></p>
+                            <small class="text-muted">15 min ago</small>
+                        </li>
+                        <li>
+                            <i class="zmdi zmdi-delete text-danger"></i>
+                            <strong>Project removed</strong>
+                            <p><a href="javascript:">AdminX BS4</a></p>
+                            <small class="text-muted">1 hours ago</small>
+                        </li>
+                        <li>
+                            <i class="zmdi zmdi-account text-success"></i>
+                            <strong>New user</strong>
+                            <p><a href="javascript:">UI Designer</a></p>
+                            <small class="text-muted">1 hours ago</small>
+                        </li>
+                        <li>
+                            <i class="zmdi zmdi-flag text-warning"></i>
+                            <strong>Alpino v1.0.0 is available</strong>
+                            <p><a href="javascript:">Update now</a></p>
+                            <small class="text-muted">5 hours ago</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="task-menu">
+        <div class="slim_scroll">
+            <div class="card tasks">
+                <div class="header">
+                    <h2><strong>Project</strong> Status</h2>
+                </div>
+                <div class="body m-b-10">
+                    <a href="javascript:">
+                        <span class="text-muted">Project Name 1 <span class="float-right">29%</span></span>
+                        <div class="progress">
+                            <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100" style="width: 29%;"></div>
+                        </div>
+                        <ul class="list-unstyled team-info">
+                            <li class="m-r-15"><small class="text-muted">Team</small></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="body m-b-10">
+                    <a href="javascript:">
+                        <span class="text-muted">Project Name 2 <span class="float-right">78%</span></span>
+                        <div class="progress">
+                            <div class="progress-bar l-slategray" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%;"></div>
+                        </div>
+                        <ul class="list-unstyled team-info">
+                            <li class="m-r-15"><small class="text-muted">Team</small></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="body">
+                    <a href="javascript:">
+                        <span class="text-muted">Project Name 4 <span class="float-right">68%</span></span>
+                        <div class="progress">
+                            <div class="progress-bar l-coral" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;"></div>
+                        </div>
+                        <ul class="list-unstyled team-info">
+                            <li class="m-r-15"><small class="text-muted">Team</small></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                            <li><img src="{{ asset('assets/avatar.jpg') }}" alt="Avatar"></li>
+                        </ul>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rightsidebar" class="right-sidebar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting">Setting</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity">Activity</a></li>
+        </ul>
+        <div class="tab-content slim_scroll">
+            <div class="tab-pane slideRight active" id="setting">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Colors</strong> Skins</h2>
+                    </div>
+                    <div class="body">
+                        <ul class="choose-skin list-unstyled m-b-0">
+                            <li data-theme="black" class="active">
+                                <div class="black"></div>
+                            </li>
+                            <li data-theme="purple">
+                                <div class="purple"></div>
+                            </li>
+                            <li data-theme="blue">
+                                <div class="blue"></div>
+                            </li>
+                            <li data-theme="cyan">
+                                <div class="cyan"></div>
+                            </li>
+                            <li data-theme="green">
+                                <div class="green"></div>
+                            </li>
+                            <li data-theme="orange">
+                                <div class="orange"></div>
+                            </li>
+                            <li data-theme="blush">
+                                <div class="blush"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>General</strong> Settings</h2>
+                    </div>
+                    <div class="body">
+                        <ul class="setting-list list-unstyled m-b-0">
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox1" type="checkbox">
+                                    <label for="checkbox1">Report Panel Usage</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox2" type="checkbox" checked="">
+                                    <label for="checkbox2">Email Redirect</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox3" type="checkbox">
+                                    <label for="checkbox3">Notifications</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox4" type="checkbox">
+                                    <label for="checkbox4">Auto Updates</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox5" type="checkbox" checked="">
+                                    <label for="checkbox5">Offline</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox m-b-0">
+                                    <input id="checkbox6" type="checkbox">
+                                    <label for="checkbox6">Location Permission</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Left</strong> Menu</h2>
+                    </div>
+                    <div class="body theme-light-dark">
+                        <button class="t-dark btn btn-primary btn-round btn-block">Dark</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane slideLeft" id="activity">
+                <div class="card activities">
+                    <div class="header">
+                        <h2><strong>Recent</strong> Activity Feed</h2>
+                    </div>
+                    <div class="body">
+                        <div class="streamline b-accent">
+                            <div class="sl-item">
+                                <div class="sl-content">
+                                    <div class="text-muted">Just now</div>
+                                    <p>Finished task <a href="#" class="text-info">#features 4</a>.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-info">
+                                <div class="sl-content">
+                                    <div class="text-muted">10:30</div>
+                                    <p><a href="#">@Jessi</a> retwit your post</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-primary">
+                                <div class="sl-content">
+                                    <div class="text-muted">12:30</div>
+                                    <p>Call to customer <a href="#" class="text-info">Jacob</a> and discuss the detail.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-warning">
+                                <div class="sl-content">
+                                    <div class="text-muted">1 days ago</div>
+                                    <p><a href="#" class="text-info">Jessi</a> commented your post.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-primary">
+                                <div class="sl-content">
+                                    <div class="text-muted">2 days ago</div>
+                                    <p>Call to customer <a href="#" class="text-info">Jacob</a> and discuss the detail.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-primary">
+                                <div class="sl-content">
+                                    <div class="text-muted">3 days ago</div>
+                                    <p>Call to customer <a href="#" class="text-info">Jacob</a> and discuss the detail.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-warning">
+                                <div class="sl-content">
+                                    <div class="text-muted">4 Week ago</div>
+                                    <p><a href="#" class="text-info">Jessi</a> commented your post.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-warning">
+                                <div class="sl-content">
+                                    <div class="text-muted">5 days ago</div>
+                                    <p><a href="#" class="text-info">Jessi</a> commented your post.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-primary">
+                                <div class="sl-content">
+                                    <div class="text-muted">5 Week ago</div>
+                                    <p>Call to customer <a href="#" class="text-info">Jacob</a> and discuss the detail.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-primary">
+                                <div class="sl-content">
+                                    <div class="text-muted">3 Week ago</div>
+                                    <p>Call to customer <a href="#" class="text-info">Jacob</a> and discuss the detail.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-warning">
+                                <div class="sl-content">
+                                    <div class="text-muted">1 Month ago</div>
+                                    <p><a href="#" class="text-info">Jessi</a> commented your post.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="leftsidebar" class="sidebar">
+        <div class="menu">
+            <ul class="list">
+                <li>
+                    <div class="user-info m-b-20">
+                        <div class="image" title="My Profile">
+                            <a href="{{ url('user/profile')}}"><img src="{{ asset('assets/avatar.jpg') }}" alt="User"></a>
+                        </div>
+                        <div class="detail">
+                            <h6 title="My Name">{{ Str::ucfirst(Auth::user()->name) }}</h6>
+                            <p title="My E-mail" class="m-b-0">{{ Auth::user()->email }}</p>
+                            <a title="My Role" href="javascript:" id="user_role" class="waves-effect waves-block"></a>
+                        </div>
+                    </div>
+                </li>
+                <li class=" @if (Request::segment(1) == 'dashboard') active open @endif ">
+                    <a href="{{ route('dashboard') }}">
+                        <i class="zmdi zmdi-home"></i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(1) == 'user') active open @endif ">
+                    <a href="{{ route('user') }}">
+                        <i class="zmdi zmdi-accounts-alt"></i><span>Users</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(1) == 'warehouse') active open @endif ">
+                    <a href="{{ route('warehouse') }}">
+                        <i class="zmdi zmdi-apps"></i><span>Warehouse</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(1) == 'category') active open @endif ">
+                    <a href="{{ route('category') }}">
+                        <i class="zmdi zmdi-layers"></i><span>Category</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(1) == 'product') active open @endif ">
+                    <a href="{{ route('product') }}">
+                        <i class="zmdi zmdi-chart"></i><span>Product</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'barcode') active open @endif ">
+                    <a href="{{ url('barcode') }}">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Barcode Scanner</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="{{ url('orders') }}">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Orders</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'reports') active open @endif ">
+                    <a href="{{ url('reports') }}">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Reports</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'creditor') active open @endif ">
+                    <a href="{{ url('creditor') }}">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Creditor</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'expired') active open @endif ">
+                    <a href="{{ url('expired') }}">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Expired</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(1) == 'profile') active @endif  open">
+                    <a href="{{ route('profile') }}">
+                        <i class="zmdi zmdi-accounts"></i><span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>
+
+
+<script>
+    $(document).ready(function() {
+        user_role();
+
+    });
+
+    function user_role() {
+
+        jQuery.ajax({
+            type: "GET",
+            url: "{{ route('user_role') }}",
+            dataType: 'html',
+            cache: false,
+            success: function(data) {
+                $("#user_role123").html(data);
+            }
+        });
+    }
+</script>

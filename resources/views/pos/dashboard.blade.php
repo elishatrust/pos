@@ -1,534 +1,308 @@
-@extends('layouts.app')
+@extends('pos.layouts.app')
 @section('content')
 
-
-
-<div class="page-wrapper">
-    <div class="page-content">
-        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
-            <div class="col">
-                <div class="card radius-10">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Revenue</p>
-                                <h4 class="my-1">$4805</h4>
-                                <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>$34 Since last week</p>
-                            </div>
-                            <div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bxs-wallet'></i>
-                            </div>
-                        </div>
-                        <div id="chart1"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Total Customers</p>
-                                <h4 class="my-1">8.4K</h4>
-                                <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week</p>
-                            </div>
-                            <div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='bx bxs-group'></i>
-                            </div>
-                        </div>
-                        <div id="chart2"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Store Visitors</p>
-                                <h4 class="my-1">59K</h4>
-                                <p class="mb-0 font-13 text-danger"><i class='bx bxs-down-arrow align-middle'></i>12.4% Since last week</p>
-                            </div>
-                            <div class="widgets-icons bg-light-danger text-danger ms-auto"><i class='bx bxs-binoculars'></i>
-                            </div>
-                        </div>
-                        <div id="chart3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end row-->
-        <div class="row row-cols-1 row-cols-xl-2">
-            <div class="col d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-1">Store Metrics</h5>
-                                <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days revenue</p>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">	<i class='bx bx-dots-horizontal-rounded font-22  text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row row-cols-1 row-cols-sm-3 mt-4">
-                            <div class="col">
-                                <div>
-                                    <p class="mb-0 text-secondary">Revenue</p>
-                                    <h4 class="my-1">$4805</h4>
-                                    <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>$1458 Since last month</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div>
-                                    <p class="mb-0 text-secondary">Total Customers</p>
-                                    <h4 class="my-1">8.4K</h4>
-                                    <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>12.3% Since last month</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div>
-                                    <p class="mb-0 text-secondary">Store Visitors</p>
-                                    <h4 class="my-1">59K</h4>
-                                    <p class="mb-0 font-13 text-danger"><i class='bx bxs-down-arrow align-middle'></i>2.4% Since last month</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="chart4"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-header border-bottom-0">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-1">Top Products</h5>
-                                <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days revenue</p>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">	<i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-list p-3 mb-3">
-                        <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/chair.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Light Blue Chair</h6>
-                                        <p class="mb-0">$240.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$2140.00</h6>
-                                <p class="mb-0">345 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart5"></div>
-                            </div>
-                        </div>
-                        <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/user-interface.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Honor Mobile 7x</h6>
-                                        <p class="mb-0">$159.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$3570.00</h6>
-                                <p class="mb-0">148 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart6"></div>
-                            </div>
-                        </div>
-                        <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/watch.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Hand Watch</h6>
-                                        <p class="mb-0">$250.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$3650.00</h6>
-                                <p class="mb-0">122 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart7"></div>
-                            </div>
-                        </div>
-                        <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/idea.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Mini Laptop</h6>
-                                        <p class="mb-0">$260.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$6320.00</h6>
-                                <p class="mb-0">452 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart8"></div>
-                            </div>
-                        </div>
-                        <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/tshirt.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Slim-T-Shirt</h6>
-                                        <p class="mb-0">$112.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$2360.00</h6>
-                                <p class="mb-0">572 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart9"></div>
-                            </div>
-                        </div>
-                        <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/headphones.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Smart Headphones</h6>
-                                        <p class="mb-0">$360.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$9840.00</h6>
-                                <p class="mb-0">275 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart10"></div>
-                            </div>
-                        </div>
-                        <div class="row border mx-0 py-2 radius-10 cursor-pointer">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="product-img">
-                                        <img src="assets/images/icons/shoes.png" alt="" />
-                                    </div>
-                                    <div class="ms-2">
-                                        <h6 class="mb-1">Green Sports Shoes</h6>
-                                        <p class="mb-0">$410.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <h6 class="mb-1">$3840.00</h6>
-                                <p class="mb-0">265 Sales</p>
-                            </div>
-                            <div class="col-sm">
-                                <div id="chart11"></div>
+<section class="content home">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 d-flex justify-content-between">
+                                <h4 class="margin-0 text-uppercase text-danger">{{ $data['title']}}</h4>
+                                <span class="badge badge-info p-3">{{ date('d-m-Y')}}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--end row-->
-        <div class="row">
-            <div class="col-xl-8 d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-1">Transaction History</h5>
-                                <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days revenue</p>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">	<i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+
+
+        <div class="block-header">
+            <div class="row clearfix">
+                <div class="col-lg-5 col-md-5 col-sm-12">
+                    <h2>Dashboard</h2>
+                    <ul class="breadcrumb padding-0">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i></a></li>
+                        <li class="breadcrumb-item active">{{ $data['header'] }}</li>
+                    </ul>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-12">
+                    <div class="input-group m-b-0">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <a href="">
+                        <div class="body l-parpl text-center">
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="2078" data-speed="2000" data-fresh-interval="700">2078</h3>
+                            <span class="text-white">Today Sales</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <a href="">
+                        <div class="body l-seagreen text-center">
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="1278" data-speed="2000" data-fresh-interval="700">1278</h3>
+                            <span class="text-white">Today Invoice</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <a href="">
+                        <div class="body l-amber text-center">
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="521" data-speed="2000" data-fresh-interval="700">521</h3>
+                            <span class="text-white">Expired</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <a href="">
+                        <div class="body l-blue text-center">
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="978" data-speed="2000" data-fresh-interval="700">978</h3>
+                            <span class="text-white">New Products</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card text-center">
+                    <a href="{{ url('admin/student/list')}}">
+                        <div class="body">
+                            <p class="m-b-20"><i class="zmdi zmdi-balance zmdi-hc-3x col-amber"></i></p>
+                            <span>Students</span>
+                            <h3 class="m-b-10"><span class="number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</span></h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card text-center">
+                    <a href="{{ url('admin/subject/list')}}">
+                        <div class="body">
+                            <p class="m-b-20"><i class="zmdi zmdi-accounts-alt zmdi-hc-3x col-blue"></i></p>
+                            <span>Subjects</span>
+                            <h3 class="m-b-10 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card text-center">
+                    <a href="{{ url('admin/class/list')}}">
+                        <div class="body">
+                            <p class="m-b-20"><i class="zmdi zmdi-layers zmdi-hc-3x"></i></p>
+                            <span>Classes</span>
+                            <h3 class="m-b-10 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card text-center">
+                    <a href="{{ url('admin/class_subject/list')}}">
+                        <div class="body">
+                            <p class="m-b-20"><i class="zmdi zmdi-swap-alt zmdi-hc-3x col-green"></i></p>
+                            <span>Subjects Assigned</span>
+                            <h3 class="m-b-10 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12">
+                        <div class="card visitors-map">
+                            <div class="header">
+                                <h2><strong>Attendence</strong> Statistics</h2>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu slideUp">
+                                            <li><a href="javascript:void(0);">Action</a></li>
+                                            <li><a href="javascript:void(0);">Another action</a></li>
+                                            <li><a href="javascript:void(0);">Something else</a></li>
+                                            <li><a href="javascript:void(0);" class="boxs-close">Delete</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
+                            <div class="body m-b-10">
+                                <div id="m_area_chart"></div>
+                            </div>
                         </div>
-                        <div class="table-responsive mt-4">
-                            <table class="table align-middle mb-0 table-hover" id="Transaction-History">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>Payment Name</th>
-                                        <th>Date & Time</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card text-center">
+                                <a href="{{ url('admin/teacher/list')}}">
+                                    <div class="body">
+                                        <p class="m-b-20"><i class="zmdi zmdi-accounts-alt zmdi-hc-3x text-primary"></i></p>
+                                        <span>Teacher</span>
+                                        <h3 class="m-b-10 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card text-center">
+                                <a href="{{ url('admin/parent/list')}}">
+                                    <div class="body">
+                                        <p class="m-b-20"><i class="zmdi zmdi-accounts-alt zmdi-hc-3x text-secondary"></i></p>
+                                        <span>Parent</span>
+                                        <h3 class="m-b-10 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Performance</strong> Statistics </h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a href="javascript:void(0);" class="boxs-close">Deletee</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body m-b-10">
+                        <div class="progress-container l-black">
+                            <span class="progress-badge">Facebook Campaign</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;">
+                                    <span class="progress-value">68%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body m-b-10">
+                        <div class="progress-container progress-info">
+                            <span class="progress-badge">Google AdSense</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 91%;">
+                                    <span class="progress-value">91%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body m-b-20">
+                        <div class="progress-container progress-warning">
+                            <span class="progress-badge">LinkedIn Campaign</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%;">
+                                    <span class="progress-value">35%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body align-center">
+                        <div class="row">
+                            <div class="col-4">
+                                <h4 class="margin-0">60%</h4>
+                                <p>Monthly</p>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="margin-0">20%</h4>
+                                <p>Weekly</p>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="margin-0">30%</h4>
+                                <p>Daily</p>
+                            </div>
+                        </div>
+                        <div class="sparkline-pie">6,1,3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Browser</strong> Usage</h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a role="button" class="boxs-close">Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="doughnut">
+                            <canvas id="canvas" height="200"></canvas>
+                            <canvas id="tooltip-canvas" width="150" height="100"></canvas>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover m-b-0 m-t-20">
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Michle Jhon</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #8547846</p>
-                                                </div>
-                                            </div>
+                                            <small>Page Views</small>
+                                            <h5 class="m-b-0">32,211</h5>
                                         </td>
-                                        <td>Jan 10, 2021</td>
-                                        <td>+256.00</td>
                                         <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
+                                            <div class="sparkline m-t-10" data-type="bar" data-width="97%" data-height="30px" data-bar-Width="3" data-bar-Spacing="7" data-bar-Color="#2b314a">2,3,5,6,9,8,7,8,7</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Pauline Bird</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #9653248</p>
-                                                </div>
-                                            </div>
+                                            <small>Site Visitors</small>
+                                            <h5 class="m-b-0">2,516</h5>
                                         </td>
-                                        <td>Jan 12, 2021</td>
-                                        <td>+566.00</td>
                                         <td>
-                                            <div class="badge rounded-pill bg-info text-dark w-100">In Progress</div>
+                                            <div class="sparkline m-t-10" data-type="bar" data-width="97%" data-height="30px" data-bar-Width="3" data-bar-Spacing="7" data-bar-Color="#2b314a">8,5,3,2,2,3,5,6,4</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-3.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Ralph Alva</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #7689524</p>
-                                                </div>
-                                            </div>
+                                            <small>Total Clicks</small>
+                                            <h5 class="m-b-0">4,536</h5>
                                         </td>
-                                        <td>Jan 14, 2021</td>
-                                        <td>+636.00</td>
                                         <td>
-                                            <div class="badge rounded-pill bg-danger w-100">Declined</div>
+                                            <div class="sparkline m-t-10" data-type="bar" data-width="97%" data-height="30px" data-bar-Width="3" data-bar-Spacing="7" data-bar-Color="#2b314a">6,5,4,6,5,1,8,4,2</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-4.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from John Roman</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #8335884</p>
-                                                </div>
-                                            </div>
+                                            <small>Total Returns</small>
+                                            <h5 class="m-b-0">516</h5>
                                         </td>
-                                        <td>Jan 15, 2021</td>
-                                        <td>+246.00</td>
                                         <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-7.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from David Buckley</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #7865986</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 16, 2021</td>
-                                        <td>+876.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-info text-dark w-100">In Progress</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-8.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Lewis Cruz</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #8576420</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 18, 2021</td>
-                                        <td>+536.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-9.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from James Caviness</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #3775420</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 18, 2021</td>
-                                        <td>+536.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-10.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Peter Costanzo</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #3768920</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 19, 2021</td>
-                                        <td>+536.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-11.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Johnny Seitz</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #9673520</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 20, 2021</td>
-                                        <td>+86.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-danger w-100">Declined</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-12.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Lewis Cruz</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #8576420</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 18, 2021</td>
-                                        <td>+536.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-13.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from David Buckley</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #8576420</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 22, 2021</td>
-                                        <td>+854.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-info text-dark w-100">In Progress</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <img src="assets/images/avatars/avatar-14.png" class="rounded-circle" width="46" height="46" alt="" />
-                                                </div>
-                                                <div class="ms-2">
-                                                    <h6 class="mb-1 font-14">Payment from Thomas Wheeler</h6>
-                                                    <p class="mb-0 font-13 text-secondary">Refrence Id #4278620</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Jan 18, 2021</td>
-                                        <td>+536.00</td>
-                                        <td>
-                                            <div class="badge rounded-pill bg-success w-100">Completed</div>
+                                            <div class="sparkline m-t-10" data-type="bar" data-width="97%" data-height="30px" data-bar-Width="3" data-bar-Spacing="7" data-bar-Color="#2b314a">8,2,3,5,6,4,5,7,5</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -537,569 +311,350 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1 text-secondary">Bounce Rate</p>
-                                <h4 class="mb-0">48.32%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-success">+12.34 Increase</p>
-                                <p class="mb-0 font-13 text-secondary">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart12"></div>
-                </div>
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1 text-secondary">Pageviews</p>
-                                <h4 class="mb-0">52.64%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-success">+21.34 Increase</p>
-                                <p class="mb-0 font-13 text-secondary">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart13"></div>
-                </div>
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <p class="mb-1 text-secondary">New Sessions</p>
-                                <h4 class="mb-0">68.23%</h4>
-                            </div>
-                            <div class="ms-auto">
-                                <p class="mb-0 font-13 text-success">+18.42 Increase</p>
-                                <p class="mb-0 font-13 text-secondary">From Last Week</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart14"></div>
-                </div>
-            </div>
-        </div>
-        <!--end row-->
-        <div class="row row-cols-1 row-cols-lg-3">
-            <div class="col d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-0">Top Categories</h5>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
+            <div class="col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Site</strong> Traffic</h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a role="button" class="boxs-close">Delete</a></li>
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="mt-5" id="chart15"></div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Kids <span class="badge bg-success rounded-pill">25</span>
-                        </li>
-                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Women <span class="badge bg-danger rounded-pill">10</span>
-                        </li>
-                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Men <span class="badge bg-primary rounded-pill">65</span>
-                        </li>
-                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Furniture <span class="badge bg-warning text-dark rounded-pill">14</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-body">
-                        <p class="font-weight-bold mb-1 text-secondary">Visitors</p>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h4 class="mb-0">43,540</h4>
-                            </div>
-                            <div class="">
-                                <p class="mb-0 align-self-center font-weight-bold text-success ms-2">4.4 <i class='bx bxs-up-arrow-alt mr-2'></i>
-                                </p>
-                            </div>
+                    <div class="body m-b-10">
+                        <h5 class="m-b-0 number count-to" data-from="0" data-to="2651" data-speed="2000" data-fresh-interval="700">2651</h5>
+                        <p class="text-muted">Direct <span class="float-right">48%</span></p>
+                        <div class="progress m-b-20">
+                            <div class="progress-bar l-dark" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="width: 48%;"></div>
                         </div>
-                        <div id="chart21"></div>
+
+                        <h5 class="m-b-0 number count-to" data-from="0" data-to="251" data-speed="2000" data-fresh-interval="700">251</h5>
+                        <p class="text-muted">Referrals <span class="float-right">18%</span></p>
+                        <div class="progress m-b-20">
+                            <div class="progress-bar l-amber" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" style="width: 18%;"></div>
+                        </div>
+
+                        <h5 class="m-b-0 number count-to" data-from="0" data-to="941" data-speed="2000" data-fresh-interval="700">941</h5>
+                        <p class="text-muted">Search Engines <span class="float-right">67%</span></p>
+                        <div class="progress">
+                            <div class="progress-bar l-green" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;"></div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col d-flex">
-                <div class="card radius-10 w-100 overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-0">Sales Overiew</h5>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-5" id="chart20"></div>
-                    </div>
-                    <div class="card-footer bg-transparent border-top-0">
-                        <div class="d-flex align-items-center justify-content-between text-center">
-                            <div>
-                                <h6 class="mb-1 font-weight-bold">$289.42</h6>
-                                <p class="mb-0 text-secondary">Last Week</p>
-                            </div>
-                            <div class="mb-1">
-                                <h6 class="mb-1 font-weight-bold">$856.14</h6>
-                                <p class="mb-0 text-secondary">Last Month</p>
-                            </div>
-                            <div>
-                                <h6 class="mb-1 font-weight-bold">$987,25</h6>
-                                <p class="mb-0 text-secondary">Last Year</p>
-                            </div>
-                        </div>
+                    <div class="body">
+                        <p class="m-b-10">Page View <small class="float-right">3,665</small></p>
+                        <div id="sparkline14"></div>
+                        <p class="m-b-10 m-t-30">Bounce Rate <small class="float-right">2,925</small></p>
+                        <div id="sparkline15"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--end row-->
-        <div class="row">
-            <div class="col-12 col-xl-6 d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-0">New Customers</h5>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Application</strong> Sales <small>Members Preformance / Monthly Status</small> </h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a href="javascript:void(0);" class="boxs-close">Deletee</a></li>
                                 </ul>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="customers-list p-3 mb-3">
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-3.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Emy Jackson</h6>
-                                <p class="mb-0 font-13 text-secondary">emy_jac@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
+                    <div class="body sales_report">
+                        <div class="table-responsive">
+                            <table class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Application</th>
+                                        <th>Team</th>
+                                        <th>Change</th>
+                                        <th>Sales</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h6>Alpino 4.1</h6>
+                                            <span>WrapTheme To By Again</span>
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled team-info">
+                                                <li><img src="assets/images/xs/avatar1.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="sparkline text-left" data-type="line" data-width="8em" data-height="20px" data-line-Width="1.5" data-line-Color="#00c5dc"
+                                            data-fill-Color="transparent">3,5,1,6,5,4,8,3</div>
+                                        </td>
+                                        <td>11,200</td>
+                                        <td>$83</td>
+                                        <td><strong>$22,520</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Compass 2.0</h6>
+                                            <span>WrapTheme To By Again</span>
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled team-info">
+                                                <li><img src="assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar4.jpg" alt="Avatar"></li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="sparkline text-left" data-type="line" data-width="8em" data-height="20px" data-line-Width="1.5" data-line-Color="#f4516c"
+                                            data-fill-Color="transparent">4,6,3,2,5,6,5,4</div>
+                                        </td>
+                                        <td>11,200</td>
+                                        <td>$66</td>
+                                        <td><strong>$13,205</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Nexa 1.1</h6>
+                                            <span>WrapTheme To By Again</span>
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled team-info">
+                                                <li><img src="assets/images/xs/avatar4.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar6.jpg" alt="Avatar"></li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="sparkline text-left" data-type="line" data-width="8em" data-height="20px" data-line-Width="1.5" data-line-Color="#31db3d"
+                                            data-fill-Color="transparent">7,3,2,1,5,4,6,8</div>
+                                        </td>
+                                        <td>12,080</td>
+                                        <td>$93</td>
+                                        <td><strong>$17,700</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Oreo 2.2</h6>
+                                            <span>ThemeMakker To By Again</span>
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled team-info">
+                                                <li><img src="assets/images/xs/avatar1.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                                <li><img src="assets/images/xs/avatar9.jpg" alt="Avatar"></li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="sparkline text-left" data-type="line" data-width="8em" data-height="20px" data-line-Width="1.5" data-line-Color="#2d342e"
+                                            data-fill-Color="transparent">3,1,2,5,4,6,2,3</div>
+                                        </td>
+                                        <td>18,200</td>
+                                        <td>$178</td>
+                                        <td><strong>$17,700</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-4.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Martin Hughes</h6>
-                                <p class="mb-0 font-13 text-secondary">martin.hug@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-23.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Laura Madison</h6>
-                                <p class="mb-0 font-13 text-secondary">laura_01@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-24.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Shoan Stephen</h6>
-                                <p class="mb-0 font-13 text-secondary">s.stephen@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-20.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Keate Medona</h6>
-                                <p class="mb-0 font-13 text-secondary">Keate@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-16.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Paul Benn</h6>
-                                <p class="mb-0 font-13 text-secondary">pauly.b@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-25.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Winslet Maya</h6>
-                                <p class="mb-0 font-13 text-secondary">winslet_02@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-11.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Bruno Bernard</h6>
-                                <p class="mb-0 font-13 text-secondary">bruno.b@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-17.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Merlyn Dona</h6>
-                                <p class="mb-0 font-13 text-secondary">merlyn.d@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                        <div class="customers-list-item d-flex align-items-center border-bottom p-2 cursor-pointer">
-                            <div class="">
-                                <img src="assets/images/avatars/avatar-7.png" class="rounded-circle" width="46" height="46" alt="" />
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="mb-1 font-14">Alister Campel</h6>
-                                <p class="mb-0 font-13 text-secondary">alister_42@xyz.com</p>
-                            </div>
-                            <div class="list-inline d-flex customers-contacts ms-auto">	<a href="javascript:;" class="list-inline-item"><i class='bx bxs-envelope'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bxs-microphone'></i></a>
-                                <a href="javascript:;" class="list-inline-item"><i class='bx bx-dots-vertical-rounded'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-xl-6 d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-0">Orders Summary</h5>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row m-0 row-cols-1 row-cols-md-3">
-                            <div class="col border-end">
-                                <div id="chart16"></div>
-                            </div>
-                            <div class="col border-end">
-                                <div id="chart17"></div>
-                            </div>
-                            <div class="col">
-                                <div id="chart18"></div>
-                            </div>
-                        </div>
-                        <div id="chart19"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--end row-->
-        <div class="card radius-10">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <h5 class="mb-0">Recent Orders</h5>
+        <div class="row clearfix">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Follow</strong> Us <small>Description text here...</small></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a class="boxs-close">Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
+                    <div class="body">
+                        <ul class="follow_us list-unstyled">
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar4.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Chris Fox</span>
+                                            <span class="message">Designer, Blogger</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Joge Lucky</span>
+                                            <span class="message">Java Developer</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Isabella</span>
+                                            <span class="message">CEO, Thememakker</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Folisise Chosielie</span>
+                                            <span class="message">Art director, Movie Cut</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Alexander</span>
+                                            <span class="message">Writter, Mag Editor</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <hr/>
-                <div class="table-responsive">
-                    <table class="table align-middle mb-0">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Order id</th>
-                                <th>Product</th>
-                                <th>Customer</th>
-                                <th>Date</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#897656</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/chair.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">Light Blue Chair</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Brooklyn Zeo</td>
-                                <td>12 Jul 2020</td>
-                                <td>$64.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-danger">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Pending</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#987549</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/shoes.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">Green Sport Shoes</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Martin Hughes</td>
-                                <td>14 Jul 2020</td>
-                                <td>$45.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Dispatched</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#685749</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/headphones.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">Red Headphone 07</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Shoan Stephen</td>
-                                <td>15 Jul 2020</td>
-                                <td>$67.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-success">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Completed</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#887459</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/idea.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">Mini Laptop Device</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Alister Campel</td>
-                                <td>18 Jul 2020</td>
-                                <td>$87.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-success">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Completed</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#335428</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/user-interface.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">Purple Mobile Phone</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Keate Medona</td>
-                                <td>20 Jul 2020</td>
-                                <td>$75.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-danger">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Pending</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#224578</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/watch.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">Smart Hand Watch</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Winslet Maya</td>
-                                <td>22 Jul 2020</td>
-                                <td>$80.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Dispatched</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#447896</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="recent-product-img">
-                                            <img src="assets/images/icons/tshirt.png" alt="">
-                                        </div>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1 font-14">T-Shirt Blue</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Emy Jackson</td>
-                                <td>28 Jul 2020</td>
-                                <td>$96.00</td>
-                                <td>
-                                    <div class="d-flex align-items-center text-danger">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                        <span>Pending</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                        <a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Traffic</strong> this month <small>7% higher than last Month</small></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a class="boxs-close">Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body m-b-10">
+                        <div class="row">
+                            <div class="col-5 col-md-5 text-center">
+                                <input type="text" class="knob" value="86" data-width="50" data-height="50" data-thickness="0.2" data-fgColor="#e5678f">
+                            </div>
+                            <div class="col-7 col-md-7">
+                                <h3 class="m-b-0">78.02 Gb</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body l-coral overflowhidden">
+                        <p class="m-b-0">Outbound Bandwidth</p>
+                        <h3>340</h3>
+                        <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="#fff" data-highlight-Line-Color="#222"
+                            data-min-Spot-Color="#fff" data-max-Spot-Color="#fff" data-spot-Color="#fff"
+                            data-offset="90" data-width="100%" data-height="135px" data-line-Width="2" data-line-Color="#fff"
+                            data-fill-Color="transparent">2,3,5,6,4,5,1,2,3,2,5</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Invoice</strong></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu slideUp">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                    <li><a class="boxs-close">Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <address>
+                                    <strong>ThemeMakker Inc.</strong> <small class="float-right">13/04/2018</small><br>
+                                    795 Folsom Ave, Suite 546<br>
+                                    San Francisco, CA 54656<br>
+                                    <abbr title="Phone">P:</abbr> (123) 456-34636
+                                </address>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Item</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>COMPASS 2.0</td>
+                                        <td>$930</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>OREO 2.2</td>
+                                        <td>$525</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>$1455</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-warning btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-print"></i></button>
+                                <button class="btn btn-primary btn-round">Pay Now</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>
 
 @endsection

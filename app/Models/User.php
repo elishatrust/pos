@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -16,13 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'username',
-        'email',
-        'phone',
-        'password',
-    ];
+    protected $table = 'users';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,4 +41,29 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    static public function getUser()
+    {
+        // return DB::table('users')->where('archive', '=', 0)->orderBy('id','desc')->get();
+
+        return DB::table('users')
+            ->join('warehouses', 'users.warehouse_id', '=', 'warehouses.id')
+            ->where('users.archive', '=', 0)
+            ->select('users.*', 'warehouses.name as warehouse_name')
+            ->orderBy('users.id', 'desc')
+            ->get();
+    }
+
+    static public function findUser($id)
+    {
+        return DB::table('users')->where('id', '=', $id)->first();
+    }
+
+
+    static public function updateUser($id)
+    {
+        return DB::table('users')->where('id', '=', $id)->update(['archive' => 1]);
+    }
+
 }
