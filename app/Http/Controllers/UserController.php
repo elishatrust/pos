@@ -129,15 +129,25 @@ class UserController extends Controller
 
     public function userRole()
     {
-        $role_id = Auth::user()->role;
-        if($role_id == 1)
-        {
-            return response()->json(['data' => 'Admin']);
-        }
-        if($role_id == 2)
-        {
-            return response()->json(['data' => 'Cashier']);
+        $user = Auth::user();
+
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
 
+        $role_id = $user->role;
+        $role = '';
+
+        switch ($role_id) {
+            case 1:
+                $role = 'Administrator';
+                break;
+            case 2:
+                $role = 'Cashier';
+                break;
+            default:
+            $role = 'Unknown Role';
+        }
+        return response()->json(['role' => $role]);
     }
 }

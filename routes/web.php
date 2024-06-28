@@ -4,16 +4,14 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('welcome');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/reset-password', [LoginController::class, 'resetPassword'])->name('reset-password');
@@ -51,3 +49,8 @@ Route::get('/product-view', [ProductController::class, 'listView'])->name('produ
 Route::post('/product/save', [ProductController::class, 'saveProduct'])->name('product_save');
 Route::get('/product_edit/{id}', [ProductController::class, 'editProduct']);
 Route::get('/product_delete/{id}', [ProductController::class, 'deleteProduct']);
+
+## Settings
+Route::get('/settings', [SettingController::class,'index'])->name('settings');
+Route::get('/settings-data', [SettingController::class, 'getSettings'])->name('settings-data');
+Route::put('/update-settings/{id}', [SettingController::class, 'updateSettings']);
