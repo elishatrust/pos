@@ -1,5 +1,5 @@
 
-# School Management System | Laravel Project
+# Point Of Sale - POS System | Laravel Project
 
 # Technologies Used
 
@@ -13,42 +13,10 @@
 # Focus
 
 1. Admin
-2. Teacher
-3. Student
-    - Admission Number
-    - Roll Number
-    - Class
-    - First Name
-    - Last Name
-    - Gender
-    - DOB
-    - Caste
-    - Religion
-    - Mobile Number
-    - Admission date
-    - Photo
-    - Blood Group
-    - Height
-    - Weight
-    - E-Mail
-    - Password
-    - Status
-4. Parent
-5. Class
-6. Course
-7. Fee
+2. Cashier
 
 ++++++++++++++++++++++++++++++ || +++++++++++++++++++++++++++++++ || ++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++ || +++++++++++++++++++++++++++++++ || ++++++++++++++++++++++++++++
-
-
-
-
-
-
-
-
-
 
 
 
