@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,15 +20,22 @@ Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
 
 
 ## Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 ## User
-Route::get('/user_role', [UserController::class, 'userRole'])->name('user_role');
+Route::get('/user_data', [UserController::class, 'userData'])->name('user_data');
 Route::get('/user', [UserController::class, 'list'])->name('user');
 Route::get('/user-view', [UserController::class, 'listView'])->name('user_view');
 Route::post('/user/save', [UserController::class, 'saveUser'])->name('user_save');
 Route::get('/user_edit/{id}', [UserController::class, 'editUser']);
 Route::get('/user_delete/{id}', [UserController::class, 'deleteUser']);
+
+## Search Customer
+Route::get('/search_customer/{text}', [UserController::class,'searchCustomer']);
+
+## Setting
+Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+Route::post('/setting/save', [SettingController::class,'saveSetting'])->name('setting_save');
 
 ## Category
 Route::get('/category', [CategoryController::class, 'list'])->name('category');
@@ -49,6 +57,16 @@ Route::get('/product-view', [ProductController::class, 'listView'])->name('produ
 Route::post('/product/save', [ProductController::class, 'saveProduct'])->name('product_save');
 Route::get('/product_edit/{id}', [ProductController::class, 'editProduct']);
 Route::get('/product_delete/{id}', [ProductController::class, 'deleteProduct']);
+
+## Sales
+Route::get('/sales', [SalesController::class, 'list'])->name('sales');
+Route::get('/sales-view', [SalesController::class, 'listView'])->name('sales_view');
+Route::post('/save-sales', [SalesController::class, 'saveSales'])->name('save_sales');
+
+
+
+
+
 
 ## Settings
 Route::get('/settings', [SettingController::class,'index'])->name('settings');

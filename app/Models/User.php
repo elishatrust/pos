@@ -45,8 +45,6 @@ class User extends Authenticatable
 
     static public function getUser()
     {
-        // return DB::table('users')->where('archive', '=', 0)->orderBy('id','desc')->get();
-
         return DB::table('users')
             ->join('warehouses', 'users.warehouse_id', '=', 'warehouses.id')
             ->where('users.archive', '=', 0)
@@ -64,6 +62,17 @@ class User extends Authenticatable
     static public function updateUser($id)
     {
         return DB::table('users')->where('id', '=', $id)->update(['archive' => 1]);
+    }
+
+    static public function searchUser($query)
+    {
+        return DB::table('users')->where(function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%{$query}%")
+                ->orWhere('phone', 'LIKE', "%{$query}%");
+            })
+            ->where('role', '!=', 1)
+            ->where('archive', 0)
+            ->get();
     }
 
 }

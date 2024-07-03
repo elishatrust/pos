@@ -127,7 +127,7 @@ class UserController extends Controller
 
     }
 
-    public function userRole()
+    public function userData()
     {
         $user = Auth::user();
 
@@ -136,18 +136,42 @@ class UserController extends Controller
         }
 
         $role_id = $user->role;
-        $role = '';
 
         switch ($role_id) {
             case 1:
-                $role = 'Administrator';
+                $data = [
+                    'role' => 'Administrator',
+                    'name' => $user->name,
+                    'email'=> $user->email,
+                ];
                 break;
             case 2:
-                $role = 'Cashier';
+                $data = [
+                    'role' => 'Cashier',
+                    'name' => $user->name,
+                    'email'=> $user->email,
+                ];
                 break;
             default:
-            $role = 'Unknown Role';
+                $data = [
+                    'role'=> 'Unknown Role',
+                    'name'=> $user->name,
+                    'email'=> $user->email,
+                ];
         }
-        return response()->json(['role' => $role]);
+        return response()->json(['data' => $data]);
+    }
+
+    public function searchCustomer($query)
+    {
+        $data = User::searchUser($query);
+
+        $view = '';
+		foreach ($data as $val) {
+            $view .= '<a><li style="background-color: #842530;color:white;  border: 1px solid #842530; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" onclick="addText(\'' . $val->id . '\', \'' . $val->name . '\', \'' . $val->phone . '\')">'
+            .$val->name." ( ".$val->phone . ' ) </li></a>';
+        }
+
+        echo $view;
     }
 }

@@ -10,7 +10,12 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 d-flex justify-content-between">
                                 <h4 class="margin-0 text-uppercase text-danger">{{ $data['title']}}</h4>
-                                <span class="badge badge-info p-3">{{ date('d-m-Y')}}</span>
+                                <span id="clock">
+                                    @php
+                                        date_default_timezone_set('UTC');
+                                        echo date('H:i:s')                                
+                                    @endphp
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -42,40 +47,40 @@
         <div class="row clearfix">
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="">
+                    <a href="{{ route('product') }}">
                         <div class="body l-parpl text-center">
-                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="2078" data-speed="2000" data-fresh-interval="700">2078</h3>
-                            <span class="text-white">Today Sales</span>
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="{{  !empty($product) ? $product : 0 }}" data-speed="2000" data-fresh-interval="700">{{  !empty($product) ? $product : 0 }}</h3>
+                            <span class="text-white">Product</span>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="">
+                    <a href="{{ route('sales') }}">
                         <div class="body l-seagreen text-center">
-                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="1278" data-speed="2000" data-fresh-interval="700">1278</h3>
-                            <span class="text-white">Today Invoice</span>
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                            <span class="text-white">Sales</span>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="">
+                    <a href="{{ route('category') }}">
                         <div class="body l-amber text-center">
-                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="521" data-speed="2000" data-fresh-interval="700">521</h3>
-                            <span class="text-white">Expired</span>
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="{{ !empty($category) ? $category : 0 }}" data-speed="2000" data-fresh-interval="700">{{ !empty($category) ? $category : 0 }}</h3>
+                            <span class="text-white">Category</span>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="">
+                    <a href="{{ route('warehouse') }}">
                         <div class="body l-blue text-center">
-                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="978" data-speed="2000" data-fresh-interval="700">978</h3>
-                            <span class="text-white">New Products</span>
+                            <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="{{ !empty($warehouse) ? $warehouse : 0 }}" data-speed="2000" data-fresh-interval="700">{{ !empty($warehouse) ? $warehouse : 0 }}</h3>
+                            <span class="text-white">Warehouse</span>
                         </div>
                     </a>
                 </div>

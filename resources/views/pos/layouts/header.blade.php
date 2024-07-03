@@ -5,13 +5,19 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 d-flex justify-content-between">
                         <h4 class="margin-0 text-uppercase text-danger">{{ $data['title']}}</h4>
-                        <span class="badge badge-info p-3">{{ date('d-m-Y')}}</span>
+                        <span id="clock">
+                            @php
+                                date_default_timezone_set('UTC');
+                                echo date('H:i:s')                                
+                            @endphp
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="block-header">
     <div class="row clearfix">
@@ -28,3 +34,4 @@
         </div>
     </div>
 </div>
+

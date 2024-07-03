@@ -41,4 +41,9 @@ class ProductModel extends Model
         return DB::table('products')->where('id', '=', $id)->update(['archive' => 1]);
     }
 
+    static public function getCountable()
+    {
+        return DB::table('products')->where('archive','=',0)->count();
+    }
+
 }

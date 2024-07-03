@@ -32,4 +32,9 @@ class WarehouseModel extends Model
     {
         return DB::table('warehouses')->where('id', '=', $id)->update(['archive' => 1]);
     }
+
+    static public function getCountable()
+    {
+        return DB::table('warehouses')->where('archive','=',0)->count();
+    }
 }

@@ -1,3 +1,4 @@
+
 <aside id="minileftbar" class="minileftbar">
     <ul class="menu_list">
         <li>
@@ -38,9 +39,9 @@
                             <a href="{{ url('user/profile')}}"><img src="{{ asset('assets/avatar.jpg') }}" alt="User"></a>
                         </div>
                         <div class="detail">
-                            <h6 title="My Name">{{ Str::ucfirst(Auth::user()->name) }}</h6>
-                            <p title="My E-mail" class="m-b-0">{{ Auth::user()->email }}</p>
-                            <a title="My Role" href="javascript:" id="user_role"  class="text-primary"></a>
+                            <h6 title="My Name" id="name"></h6>
+                            <p title="My E-mail" class="m-b-0" id="email"></p>
+                            <span title="My Role" id="role"  class="text-primary"></span>
                         </div>
                     </div>
                 </li>
@@ -69,7 +70,7 @@
                         <i class="zmdi zmdi-chart"></i><span>Product</span>
                     </a>
                 </li>
-                <li class=" @if (Request::segment(2) == 'sales') active open @endif ">
+                <li class=" @if (Request::segment(1) == 'sales') active open @endif ">
                     <a href="{{ url('sales') }}">
                         <i class="zmdi zmdi-swap-alt"></i><span>Sales</span>
                     </a>
@@ -102,16 +103,19 @@
 
 <script>
     $(document).ready(function() {
-        user_role();
+        userData();
     });
 
-    function user_role() {
+    function userData() {
 
         jQuery.ajax({
             type: "GET",
-            url: "{{ route('user_role') }}",
+            url: "{{ route('user_data') }}",
             success: function(data) {
-                $("#user_role").html(data.role);
+                var user = data.data;
+                $("#name").html(user.name);
+                $("#email").html(user.email);
+                $("#role").html(user.role);
             }
         });
     }
