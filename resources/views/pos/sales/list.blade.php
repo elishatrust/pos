@@ -27,7 +27,7 @@
 
 
 
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
+<div class="modal" id="largeModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -80,8 +80,7 @@
                                         <th>Product</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
-                                        <th>Unit</th>
-                                        <th>Package</th>
+                                        <th>Unit</th>l
                                         <th>Item Total</th>
                                         <th>Action</th>
                                     </tr>
@@ -89,7 +88,9 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <input type="text" name="products[0][product]" id="product" class="form-control" placeholder="Search product" required>
+                                            <input type="text" name="products[0][product]" id="searchProduct" class="form-control" placeholder="Search product" required>
+                                            <input type="text" name="product_id" id="product_id" autocomplete="off">
+                                            <div id="productResult" class="list-group"></div>
                                         </td>
                                         <td>
                                             <input type="number" name="products[0][price]" id="price" min="0" class="form-control" placeholder="Price" required>
@@ -99,9 +100,6 @@
                                         </td>
                                         <td>
                                             <input type="number" name="products[0][unit]" id="unit" min="0" class="form-control" placeholder="Unit" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="products[0][packs]" id="packs" min="1" class="form-control" placeholder="Package" required>
                                         </td>
                                         <td>
                                             <input type="number" name="products[0][total]" id="total" min="0" class="form-control" placeholder="Item Total" readonly required>
@@ -173,7 +171,6 @@ $(document).ready(function () {
                     <td><input class="form-control" type="number" name="products[${rowIndex}][price]" min="0" placeholder="Price" required></td>
                     <td><input class="form-control" type="number" name="products[${rowIndex}][qty]" min="0" placeholder="Quantity" required></td>
                     <td><input class="form-control" type="number" name="products[${rowIndex}][unit]" min="0" placeholder="Unit" required></td>
-                    <td><input class="form-control" type="number" name="products[${rowIndex}][per_pack]" min="0" placeholder="Package" required></td>
                     <td><input class="form-control" type="number" name="products[${rowIndex}][item_total]" min="0" placeholder="Item Total" readonly></td>
                     <td><button type="button" title="Delete Row" class="removeRow btn btn-sm btn-danger btn-raised btn-round btn-icon-mini"><i class="zmdi zmdi-delete"></i></button></td>
                 </tr>`;
@@ -188,8 +185,13 @@ $(document).ready(function () {
 
     // SEARCH CUSTOMER
     $("#searchText").on('keyup',function(){
-        searchText()
-    })
+        searchText();
+    });
+
+    // SEARCH PRODUCT
+    $("#searchProduct").on('keyup',function(){
+        searchProduct();
+    });
 
 });
 
@@ -217,7 +219,26 @@ function searchText(){
 }
 
 
+// ADD PRODUCT
+function addProduct(id,name,price){
+    $("#product_id").val(id)
+    $("#searchProduct").val(name)
+    $("#productResult").html("")
+}
 
+// SEARCH PRODUCT
+function searchProduct(){
+    var searchText=$("#searchProduct").val();
+    jQuery.ajax({
+            type: "GET",
+            url: "/search_product/"+searchText,
+            dataType:'html',
+            success: function(data) {     
+                $("#productResult").html(data)
+            }
+
+    });
+}
 
 
 

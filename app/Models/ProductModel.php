@@ -46,4 +46,16 @@ class ProductModel extends Model
         return DB::table('products')->where('archive','=',0)->count();
     }
 
+
+    static public function searchProduct($query)
+    {
+        return DB::table('products')->where(function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%{$query}%")
+                ->orWhere('description', 'LIKE', "%{$query}%");
+            })
+            ->where('archive', 0)
+            ->get();
+    }
+
+
 }

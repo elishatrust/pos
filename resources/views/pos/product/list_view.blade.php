@@ -6,8 +6,9 @@
                 <th>#</th>
                 <th>Batch</th>
                 <th>Product</th>
+                <th>Barcode</th>
                 {{-- <th>Cost</th> --}}
-                <th>Selling</th>
+                <th>Selling(TZS)</th>
                 <th>InStock</th>
                 {{-- <th>MFT Date</th> --}}
                 <th>Exp Date</th>
@@ -26,9 +27,13 @@
                 <td>{{ $n }}</td>
                 <td>{{ $item->batch }}</td>
                 <td>{{ $item->name }}</td>
+                <td>
+                    {!! $item->bar_code !!}
+                    <p>P - {{ $item->barcode }}</p>
+                </td>
                 {{-- <td>{{ $item->cost }}</td> --}}
-                <td>{{ $item->selling }}</td>
-                <td>{{ $item->qty }}</td>
+                <td>{{ number_format($item->selling) }}</td>
+                <td>{{ number_format($item->qty) }}</td>
                 {{-- <td>{{ \Carbon\Carbon::parse($item->mft_date)->format('d-m-Y') }}</td> --}}
                 <td>{{ \Carbon\Carbon::parse($item->exp_date)->format('d-m-Y') }}</td>
                 <td>{{ $item->warehouse_name }}</td>

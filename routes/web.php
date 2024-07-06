@@ -32,6 +32,8 @@ Route::get('/user_delete/{id}', [UserController::class, 'deleteUser']);
 
 ## Search Customer
 Route::get('/search_customer/{text}', [UserController::class,'searchCustomer']);
+Route::get('/search_product/{text}', [ProductController::class,'searchProduct']);
+
 
 ## Setting
 Route::get('/setting', [SettingController::class, 'index'])->name('setting');

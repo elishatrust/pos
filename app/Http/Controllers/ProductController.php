@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Hash;
+use Picqer\Barcode\BarcodeGeneratorHTML;
 
 class ProductController extends Controller
 {
@@ -38,9 +38,13 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
 
+            $number = mt_rand(1000000000, 9999999999);
+            $generateCode = new BarcodeGeneratorHTML();
+            $barcode = $generateCode->getBarcode($number, $generateCode::TYPE_CODE_128);
+
             $hidden_id = $request->input('hidden_id');
             $batch = $request->input('batch');
-            $name = $request->input('name');
+            $name = $request->input('product_name');
             $description = $request->input('description');
             $cost = $request->input('cost');
             $selling = $request->input('selling');
@@ -56,6 +60,8 @@ class ProductController extends Controller
             if(empty($hidden_id)):
                 $saveData = [
                     'batch' => $batch,
+                    'bar_code' => $barcode,
+                    'barcode' => $number,
                     'name' => $name,
                     'description' => $description,
                     'cost' => $cost,
@@ -82,6 +88,8 @@ class ProductController extends Controller
                 $saveData = [
                     'batch' => $batch,
                     'name' => $name,
+                    // 'bar_code' => $barcode,
+                    // 'barcode' => $number,
                     'description' => $description,
                     'cost' => $cost,
                     'selling' => $selling,
@@ -139,6 +147,27 @@ class ProductController extends Controller
             return response()->json(['status' => 500, 'message' => $e->getMessage()]);
         }
 
+    }
+
+
+    public function searchProduct($query)
+    {
+        $data = ProductModel::searchProduct($query);
+
+        dd($data);
+
+        $view = '';
+        if ($data) {            
+            foreach ($data as $val) {
+                $view .= '<a><li style="background-color: #dee2e6; color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" onclick="addProduct(\'' . $val->id . '\', \'' . $val->name . '\')">'
+                .$val->name.'</li></a>';
+            }
+
+        } else {
+            $view .= '<a><li style="background-color: #dee2e6;color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" > No Product Found. </li></a>';
+        }
+
+        echo $view;
     }
 
 

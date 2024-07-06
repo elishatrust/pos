@@ -27,7 +27,7 @@
 
 
 
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -48,7 +48,7 @@
                         <div class="col-md-6 col-sm-12">
                             <label for="">Name <span class="text-danger">*</span></label>
                             <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Eg. T-Shirt" required>
+                                <input type="text" id="product_name" name="product_name" class="form-control" placeholder="Eg. T-Shirt" required>
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12">
@@ -211,7 +211,7 @@ function editProduct(id){
             var rowData=data.data;
 
             $("#batch").val(rowData.batch);
-            $("#name").val(rowData.name);
+            $("#product_name").val(rowData.name);
             $("#description").val(rowData.description);
             $("#cost").val(rowData.cost);
             $("#selling").val(rowData.selling);

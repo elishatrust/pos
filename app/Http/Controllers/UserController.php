@@ -167,9 +167,14 @@ class UserController extends Controller
         $data = User::searchUser($query);
 
         $view = '';
-		foreach ($data as $val) {
-            $view .= '<a><li style="background-color: #842530;color:white;  border: 1px solid #842530; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" onclick="addText(\'' . $val->id . '\', \'' . $val->name . '\', \'' . $val->phone . '\')">'
-            .$val->name." ( ".$val->phone . ' ) </li></a>';
+        if ($data) {            
+            foreach ($data as $val) {
+                $view .= '<a><li style="background-color: #dee2e6; color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" onclick="addText(\'' . $val->id . '\', \'' . $val->name . '\', \'' . $val->phone . '\')">'
+                .$val->name." ( ".$val->phone . ' ) </li></a>';
+            }
+
+        } else {
+            $view .= '<a><li style="background-color: #dee2e6;color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" > No Customer Found. </li></a>';
         }
 
         echo $view;

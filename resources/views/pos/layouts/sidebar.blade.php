@@ -75,11 +75,6 @@
                         <i class="zmdi zmdi-swap-alt"></i><span>Sales</span>
                     </a>
                 </li>
-                <li class=" @if (Request::segment(2) == 'barcode') active open @endif ">
-                    <a href="{{ url('barcode') }}">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Barcode Scanner</span>
-                    </a>
-                </li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
                     <a href="{{ url('orders') }}">
                         <i class="zmdi zmdi-swap-alt"></i><span>Orders</span>
