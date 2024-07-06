@@ -28,7 +28,6 @@
 
 
 <div class="modal" id="largeModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-    
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -90,11 +89,12 @@
                                     <tr>
                                         <td>
                                             <input type="text" name="products[0][product]" id="searchProduct" class="form-control" placeholder="Search product" required>
-                                            <input type="text" name="product_id" id="product_id" autocomplete="off">
+                                            <input type="hidden" name="product_id" id="product_id" autocomplete="off">
+                                            <input type="hidden" name="product_name" id="product_name" autocomplete="off">
                                             <div id="productResult" class="list-group"></div>
                                         </td>
                                         <td>
-                                            <input type="number" name="products[0][price]" id="price" min="0" class="form-control" placeholder="Price" required>
+                                            <input type="number" name="products[0][price]" id="product_price" min="0" class="form-control" placeholder="Price" readonly required>
                                         </td>
                                         <td>
                                             <input type="number" name="products[0][qty]" id="qty" min="0" class="form-control" placeholder="Quantity" required>
@@ -221,9 +221,10 @@ function searchText(){
 
 
 // ADD PRODUCT
-function addProduct(id,name,price){
+function addProduct(id,name,selling){
     $("#product_id").val(id)
     $("#searchProduct").val(name)
+    $("#product_price").val(selling)
     $("#productResult").html("")
 }
 

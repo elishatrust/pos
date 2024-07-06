@@ -154,17 +154,15 @@ class ProductController extends Controller
     {
         $data = ProductModel::searchProduct($query);
 
-        dd($data);
-
         $view = '';
         if ($data) {            
             foreach ($data as $val) {
-                $view .= '<a><li style="background-color: #dee2e6; color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" onclick="addProduct(\'' . $val->id . '\', \'' . $val->name . '\')">'
+                $view .= '<a><li style="background-color: #dee2e6; color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1000;width:100%;" onclick="addProduct(\'' . $val->id . '\', \'' . $val->name . '\', \'' . $val->selling . '\')">'
                 .$val->name.'</li></a>';
             }
 
         } else {
-            $view .= '<a><li style="background-color: #dee2e6;color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" > No Product Found. </li></a>';
+            $view .= '<a><li style="background-color: #dee2e6;color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1000;width:100%;" > No Product Found. </li></a>';
         }
 
         echo $view;
