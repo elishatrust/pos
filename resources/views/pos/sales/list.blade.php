@@ -168,8 +168,13 @@ $(document).ready(function () {
     let rowIndex = 1;
     $('#addRow').click(function() {
         let row = `<tr>
-                    <td><input class="form-control" type="text" name="products[${rowIndex}][product]" min="0" placeholder="Search product" required></td>
-                    <td><input class="form-control" type="number" name="products[${rowIndex}][price]" min="0" placeholder="Price" required></td>
+                    <td>
+                        <input class="form-control" type="text" name="products[${rowIndex}][product]" id="searchProduct" min="0" placeholder="Search product" required>
+                        input type="hidden" name="product_id" id="product_id" autocomplete="off">
+                        <input type="hidden" name="product_name" id="product_name" autocomplete="off">
+                        <div id="productResult" class="list-group"></div>
+                    </td>
+                    <td><input class="form-control" type="number" name="products[${rowIndex}][price]" id="product_price" min="0" placeholder="Price" required></td>
                     <td><input class="form-control" type="number" name="products[${rowIndex}][qty]" min="0" placeholder="Quantity" required></td>
                     <td><input class="form-control" type="number" name="products[${rowIndex}][unit]" min="0" placeholder="Unit" required></td>
                     <td><input class="form-control" type="number" name="products[${rowIndex}][item_total]" min="0" placeholder="Item Total" readonly></td>
