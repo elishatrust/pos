@@ -47,8 +47,14 @@
                                 <div id="searchResult" class="list-group"></div>
                             </div>
                         </div>
+                        <div class="col-md-12 col-sm-12">
+                            <button type="button" id="addButton" title="Add Customer" class="btn btn-sm btn-info btn-round waves-effect" style="display: block"><i class="zmdi zmdi-plus"></i></button>
+                        </div>
                     </div>
-                    <div class="row" id="addForm" style="display: none">
+
+
+                    
+                    <div class="row" id="addForm" style="display: none12">
                         <div class="col-md-4 col-sm-12">
                             <label for="">Name <span class="text-danger">*</span></label>
                             <div class="form-group">
@@ -68,49 +74,50 @@
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12">
-                            <button type="button" id="addButton12" title="Add Customer" class="btn btn-sm btn-info btn-round waves-effect" style="display: block12"><i class="zmdi zmdi-plus"></i></button>
-                            <button type="button" id="searchButton12" title="Search Customer" class="btn btn-sm btn-dark btn-round waves-effect" style="display: none12"><i class="zmdi zmdi-search"></i></button>
+                            <button type="button" id="searchButton" title="Search Customer" class="btn btn-sm btn-dark btn-round waves-effect"><i class="zmdi zmdi-search"></i></button>
                         </div>
                     </div>
                     <div class="row mt-5">
-                        <div class="col-md-12 col-sm-12 table-responsive">
-                            <table class="table table-striped table-bordered border-2" id="productsTable">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Unit</th>l
-                                        <th>Item Total</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="text" name="products[0][product]" id="searchProduct" class="form-control" placeholder="Search product" required>
-                                            <input type="hidden" name="product_id" id="product_id" autocomplete="off">
-                                            <input type="hidden" name="product_name" id="product_name" autocomplete="off">
-                                            <div id="productResult" class="list-group"></div>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="products[0][price]" id="product_price" min="0" class="form-control" placeholder="Price" readonly required>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="products[0][qty]" id="qty" min="0" class="form-control" placeholder="Quantity" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="products[0][unit]" id="unit" min="0" class="form-control" placeholder="Unit" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="products[0][total]" id="total" min="0" class="form-control" placeholder="Item Total" readonly required>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-info btn-raised btn-round waves-effect" id="addRow" title="Add Row"><i class="zmdi zmdi-plus"></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered border-2" id="productsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Unit</th>l
+                                            <th>Item Total</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="text" name="products[0][product]" id="searchProduct" class="form-control" placeholder="Search product" required>
+                                                <input type="hidden" name="product_id" id="product_id" autocomplete="off">
+                                                <input type="hidden" name="product_name" id="product_name" autocomplete="off">
+                                                <div id="productResult" class="list-group"></div>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="products[0][price]" id="product_price" min="0" class="form-control" placeholder="Price" readonly required>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="products[0][qty]" id="qty" min="0" class="form-control" placeholder="Quantity" required>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="products[0][unit]" id="unit" min="0" class="form-control" placeholder="Unit" required>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="products[0][total]" id="total" min="0" class="form-control" placeholder="Item Total" readonly required>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-info btn-raised btn-round waves-effect" id="addRow" title="Add Row"><i class="zmdi zmdi-plus"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -131,15 +138,15 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-uppercase">Balance (TZS):</th>
-                                            <td><input type="number" name="balance_amount" id="balance_amount" class="form-control" placeholder="Balance Amount" value="300.00" readonly></td>
+                                            <td><input type="number" name="balance_amount" id="balance_amount" class="form-control" placeholder="Balance Amount" value="" readonly></td>
                                         </tr>
                                         <tr>
                                             <th class="text-uppercase">Paid (TZS):</th>
-                                            <td><input type="number" name="paid_amount" id="paid_amount" class="form-control" placeholder="Paid Amount" value=""></td>
+                                            <td><input type="number" name="paid_amount" id="paid_amount" oninput="calculateTotal()" class="form-control" placeholder="Paid Amount" value=""></td>
                                         </tr>
                                         <tr>
                                             <th class="text-uppercase">Total (TZS):</th>
-                                            <td><input type="number" name="total_amount" id="total_amount" class="form-control" placeholder="Total Amount" value="500.00" readonly></td>
+                                            <td><input type="number" name="total_amount" id="total_amount" class="form-control" placeholder="Total Amount" value="" readonly></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -170,7 +177,7 @@ $(document).ready(function () {
         let row = `<tr>
                     <td>
                         <input class="form-control" type="text" name="products[${rowIndex}][product]" id="searchProduct" min="0" placeholder="Search product" required>
-                        input type="hidden" name="product_id" id="product_id" autocomplete="off">
+                        <input type="hidden" name="product_id" id="product_id" autocomplete="off">
                         <input type="hidden" name="product_name" id="product_name" autocomplete="off">
                         <div id="productResult" class="list-group"></div>
                     </td>
@@ -199,6 +206,20 @@ $(document).ready(function () {
         searchProduct();
     });
 
+    // HIDE & SHOW CUSTOMER FIELDS
+    $("#addButton").click(function(){
+        $('#addForm').show();
+        $('#searchForm').hide();
+        $("#searchButton").show().prop("disabled", false);
+        $("#searchText").hide().prop("disabled", true);
+    })
+     
+    $("#searchButton").click(function(){
+        $('#addForm').hide();
+        $('#searchForm').show();
+        $("#searchText").hide().prop("disabled", false);
+    })
+
 });
 
 
@@ -214,13 +235,12 @@ function searchText(){
     var searchText=$("#searchText").val();
     $("#customer_id").val("")
     jQuery.ajax({
-            type: "GET",
-            url: "/search_customer/"+searchText,
-            dataType:'html',
-            success: function(data) {     
-                $("#searchResult").html(data)
-            }
-
+        type: "GET",
+        url: "/search_customer/"+searchText,
+        dataType:'html',
+        success: function(data) {     
+            $("#searchResult").html(data)
+        }
     });
 }
 
@@ -247,7 +267,16 @@ function searchProduct(){
     });
 }
 
-
+// CALCULATE PRODUCT
+function calculateTotal() {
+    var balance = parseFloat($('#balance_amount').val());
+    var paid = parseFloat($('#paid_amount').val());
+    if (!isNaN(balance) && !isNaN(paid)) {
+        $('#total_amount').val(balance + paid);
+    } else {
+        $('#total_amount').val('');
+    }
+}
 
 
 function getView() {
