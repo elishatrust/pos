@@ -6,12 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\SettingModel;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
     
     public function index()
     {
+        if (!Auth::user()) {
+            return redirect()->route('login');
+        }
+
         $data = [
                 'title' => 'POS System v1.0',
                 'header' => 'Settings'

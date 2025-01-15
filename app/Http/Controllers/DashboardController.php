@@ -13,9 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-
-        if (!$user) {
+        if (!Auth::user()) {
             return redirect()->route('login');
         }
         
