@@ -13,6 +13,10 @@ class WarehouseController extends Controller
 {
     public function list()
     {
+        if (!Auth::user()) {
+            return redirect()->route('login');
+        }
+        
         $data = [
                 'title' => 'POS System v1.0',
                 'header' => 'Warehouse',

@@ -35,16 +35,19 @@
             <ul class="list">
                 <li>
                     <div class="user-info m-b-20">
-                        <div class="image" title="My Profile">
+                        <div class="image" title="View profile">
                             <a href="{{ url('user/profile')}}"><img src="{{ asset('assets/avatar.jpg') }}" alt="User"></a>
                         </div>
                         <div class="detail">
-                            <h6 title="My Name" id="name"></h6>
-                            <p title="My E-mail" class="m-b-0" id="email"></p>
-                            <span title="My Role" id="role"  class="text-primary"></span>
+                            <h6 title="FullName" id="name"></h6>
+                            <p title="Email" class="m-b-0" id="email"></p>
+                            <span title="Role" id="role"  class="text-primary"></span>
                         </div>
                     </div>
                 </li>
+                <li class="header">MAIN</li>
+                <!-- ADMIN  MENU -->
+                @if (Auth::user()->role == '1')
                 <li class=" @if (Request::segment(1) == 'dashboard') active open @endif ">
                     <a href="{{ route('dashboard') }}">
                         <i class="zmdi zmdi-home"></i><span>Dashboard</span>
@@ -75,21 +78,63 @@
                         <i class="zmdi zmdi-swap-alt"></i><span>Sales</span>
                     </a>
                 </li>
+                <li class="header">TRANSACTION</li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
-                    <a href="{{ url('orders') }}">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Orders</span>
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Expenses</span>
                     </a>
                 </li>
-                {{-- <li class=" @if (Request::segment(2) == 'reports') active open @endif ">
-                    <a href="{{ url('reports') }}">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Reports</span>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Purchase</span>
                     </a>
                 </li>
-                <li class=" @if (Request::segment(2) == 'expired') active open @endif ">
-                    <a href="{{ url('expired') }}">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Expired</span>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>New Transaction</span>
                     </a>
-                </li> --}}
+                </li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Active Transaction</span>
+                    </a>
+                </li>
+                <li class="header">REPORT</li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-delicious"></i><span>Income</span>
+                    </a>
+                </li>
+                <!-- USER MENU -->
+                @elseif (Auth::user()->role == '2')  
+                <li class=" @if (Request::segment(1) == 'dashboard') active open @endif ">
+                    <a href="{{ route('dashboard') }}">
+                        <i class="zmdi zmdi-home"></i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="header">TRANSACTION</li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Expenses</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Purchase</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>New Transaction</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
+                    <a href="#">
+                        <i class="zmdi zmdi-swap-alt"></i><span>Active Transaction</span>
+                    </a>
+                </li>
+
+                @endif
             </ul>
         </div>
     </div>
