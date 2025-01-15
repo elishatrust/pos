@@ -19,10 +19,21 @@ Route::get('/reset-password', [LoginController::class, 'resetPassword'])->name('
 Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
 
 
-## Dashboard
-Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+## SUPER USER
+Route::group(['middleware'=>'admin'], function(){
+     Route::get('admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin-dashboard');
 
-## User
+});
+
+
+
+Route::group(['middleware'=>'user'], function(){
+     Route::get('user/dashboard', [DashboardController::class, 'dashboard'])->name('user-dashboard');
+
+});
+
+
+## NORMAL USER
 Route::get('/user_data', [UserController::class, 'userData'])->name('user_data');
 Route::get('/user', [UserController::class, 'list'])->name('user');
 Route::get('/user-view', [UserController::class, 'listView'])->name('user_view');

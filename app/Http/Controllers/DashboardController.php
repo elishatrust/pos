@@ -11,24 +11,57 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
+    // public function dashboard()
+    // {
+    //     if (!Auth::user()) :  return redirect()->route('login');
+        
+    //     $data = [
+    //         'title' => 'POS System v1.0',
+    //         'header' => 'Dashboard'
+    //     ];
 
-        if (!$user) {
+    //     if(Auth::user()->role == '1') :
+    //         $warehouse = WarehouseModel::getCountable(); 
+    //         $product = ProductModel::getCountable();
+    //         $category = CategoryModel::getCountable();
+    //         // $sales = SaleModel::getCountable();    
+    //         return view('pos.admin_dashboard', compact('data', 'warehouse', 'product','category'));
+    //     elseif(Auth::user()->role == '2'):
+    //         return view('pos.user_dashboard', compact('data', 'warehouse', 'product','category'));
+    //     endif;
+
+    // }
+
+    public function dashboard()
+    {
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
-        
+
         $data = [
-                'title' => 'POS System v1.0',
-                'header' => 'Dashboard'
-            ];
+            'title' => 'POS System v1.0',
+            'header' => 'Dashboard',
+        ];
 
-        $warehouse = WarehouseModel::getCountable(); 
-        $product = ProductModel::getCountable();
-        $category = CategoryModel::getCountable();
-        // $sales = SaleModel::getCountable();
+        $userRole = Auth::user()->role;
 
-        return view('pos.dashboard', compact('data', 'warehouse', 'product','category'));
+        if ($userRole == '1') 
+        {
+            $warehouse = WarehouseModel::getCountable();
+            $product = ProductModel::getCountable();
+            $category = CategoryModel::getCountable();
+            // $sales = SaleModel::getCountable();    
+            return view('pos.admin_dashboard', compact('data', 'warehouse', 'product', 'category'));
+        } 
+        elseif ($userRole == '2') 
+        {
+            $warehouse = $product = $category = null;
+            return view('pos.user_dashboard', compact('data', 'warehouse', 'product', 'category'));
+        } 
+        else 
+        {
+            return redirect()->route('login')->with('error', 'Unauthorized access.');
+        }
     }
+
 }

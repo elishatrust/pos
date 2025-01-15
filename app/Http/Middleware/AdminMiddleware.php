@@ -21,7 +21,7 @@ class AdminMiddleware
             if(Auth::user()->role == 1)
             {
 
-                return redirect()->route('dashboard');
+                return redirect()->route('admin-dashboard');
                 // return $next($request);
 
             }else{

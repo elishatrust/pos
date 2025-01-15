@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CashierMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class CashierMiddleware
         {
             if(Auth::user()->role == 2)
             {
-                return redirect()->route('dashboard');
+                return redirect()->route('user-dashboard');
                 // return $next($request);
             }else{
                 Auth::logout();
