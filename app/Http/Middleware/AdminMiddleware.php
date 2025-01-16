@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
@@ -16,22 +16,23 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!empty(Auth::check()))
+        if(Auth::check())
         {
-            if(Auth::user()->role == 1)
+            # For Super User :: Role = 1
+            if(Auth::user()->role == '1')
             {
-
-                return redirect()->route('admin-dashboard');
-                // return $next($request);
-
-            }else{
-                Auth::logout();
-                return redirect()->route('login');
+                return $next($request);
             }
-
-        }else{
+            else
+            {
+                Auth::logout();
+                return redirect()->route('logout');
+            }
+        }
+        else
+        {
             Auth::logout();
-            return redirect()->route('login');
+            return redirect()->route('logout');
         }
     }
 }

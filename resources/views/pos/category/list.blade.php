@@ -35,19 +35,19 @@
             </div>
             <div class="modal-body">
 
-                <form id="form" onsubmit="save(event)" enctype="form-data/multipart">
+                <form id="form" onsubmit="save(e)" enctype="form-data/multipart">
                     @csrf
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <label for="">Category <span class="text-danger">*</span></label>
                             <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter category" required>
+                                <input type="text" id="category" name="category" class="form-control" placeholder="Enter category" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Status <span class="text-danger">*</span></label>
-                            <select name="catStatus" id="catStatus" class="form-control show-tick" required>
+                            <select name="catStatus" id="catStatus" class="form-control show-tick" required="">
                                 <option>Select</option>
                                 <option value="0">Active</option>
                                 <option value="1">Inactive</option>
@@ -75,7 +75,7 @@ $(document).ready(function () {
 function getView() {
     jQuery.ajax({
         type: "GET",
-        url: "{{ route('category_view') }}",
+        url: "{{ route('admin-category-view') }}",
         dataType: 'html',
         cache: false,
         success: function (data) {
@@ -86,6 +86,7 @@ function getView() {
 
 function clear_input() {
     document.getElementById('form').reset();
+    $('form#form')[0].reset();
     $("#hidden_id").val("")
     getView()
 }
@@ -95,14 +96,14 @@ function closeModel(){
 }
 
 function deleteCategory(id){
-    var conf = confirm("Are you Sure you want to DELETE this Category ?");
+    var conf = confirm("Are you Sure you want to delete this Category ?");
     if (!conf) {
         return;
     }
 
     jQuery.ajax({
         type: "GET",
-        url: "/category_delete/"+id,
+        url: "/admin/category-delete/"+id,
         dataType: 'json',
         success: function (data) {
             if (data.status == 200) {
@@ -127,14 +128,14 @@ function editCategory(id){
 
     jQuery.ajax({
         type: "GET",
-        url: "/category_edit/"+id,
+        url: "/admin/category-edit/"+id,
         dataType: 'json',
         success: function (data) {
             $("#hidden_id").val(data.id)
 
             var rowData=data.data;
 
-            $("#name").val(rowData.name);
+            $("#category").val(rowData.name);
             $("#catStatus").val(rowData.status);
 
             $("#submitBtn").html("Update");
@@ -147,12 +148,13 @@ function editCategory(id){
 function save(e) {
     e.preventDefault();
 
+    $("#submitBtn").html("Save");
     var form = document.getElementById('form');
     var formData = new FormData(form);
 
     jQuery.ajax({
         type: "POST",
-        url: "{{ route('category_save') }}",
+        url: "{{ route('admin-category-save') }}",
         data: formData,
         dataType: 'json',
         processData: false,

@@ -13,12 +13,12 @@ class CategoryController extends Controller
 {
     public function list()
     {
-        if (!Auth::user()) {
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
         
         $data = [
-                'title' => 'POS System v1.0',
+                'title' => 'POS-SYSTEM',
                 'header' => 'Category',
                 'sub_header' => 'Category List'
             ];
@@ -37,13 +37,13 @@ class CategoryController extends Controller
             DB::beginTransaction();
 
             $hidden_id = $request->input('hidden_id');
-            $name = $request->input('name');
+            $category = $request->input('category');
             $status = $request->input('catStatus');
             $user_id = Auth::user()->id;
 
             if(empty($hidden_id)):
                 $saveData = [
-                    'name' => $name,
+                    'name' => $category,
                     'status' => $status,
                     'created_by' => $user_id,
                     'updated_by' => $user_id,
@@ -58,7 +58,7 @@ class CategoryController extends Controller
             else:
 
                 $saveData = [
-                    'name' => $name,
+                    'name' => $category,
                     'status' => $status,
                     'updated_by' => $user_id,
                 ];

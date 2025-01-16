@@ -16,14 +16,14 @@ class ProductController extends Controller
 {
     public function list()
     {
-        if (!Auth::user()) {
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
         
         $data = [
-                'title' => 'POS System v1.0',
-                'header' => 'Stock Inventory',
-            ];
+            'title' => 'POS-SYSTEM',
+            'header' => 'Stock Inventory',
+        ];
 
         $warehouses = WarehouseModel::getWarehouse();
         $categories = CategoryModel::getCategory();

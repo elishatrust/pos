@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function index()
     {
         $data = [
-                'title' => 'POS System v1.0',
+                'title' => 'POS-SYSTEM',
                 'header' => 'Login'
             ];
         return view('auth.login', compact('data'));
@@ -35,13 +35,26 @@ class LoginController extends Controller
         }
 
         $credentials = $request->only('email', 'password');
+        $userRole = Auth::user();
 
-        if (Auth::attempt($credentials)) {
-            return response()->json([
-                'status' => 200,
-                'message' => 'Login Successfully',
-                'redirect_url' => route('dashboard')
-            ]);
+        if (Auth::attempt($credentials)) 
+        {
+            if($userRole->role == '1')
+            {
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Login Successfully',
+                    'redirect_url' => route('admin-dashboard')
+                ]);
+            }
+            elseif($userRole->role == '2')
+            {
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Login Successfully',
+                    'redirect_url' => route('user-dashboard')
+                ]);
+            }
         }
 
         return response()->json([
@@ -52,8 +65,12 @@ class LoginController extends Controller
 
     public function resetPassword()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
         $data = [
-                'title' => 'POS System v1.0',
+                'title' => 'POS-SYSTEM',
                 'header' => 'Reset Password'
             ];
         return view('auth.reset', compact('data'));
@@ -61,8 +78,12 @@ class LoginController extends Controller
 
     public function profile()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
         $data = [
-                'title' => 'POS System v1.0',
+                'title' => 'POS-SYSTEM',
                 'header' => 'My Profile'
             ];
         return view('pos.profile', compact('data'));

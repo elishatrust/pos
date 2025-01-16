@@ -2,8 +2,8 @@
 <aside id="minileftbar" class="minileftbar">
     <ul class="menu_list">
         <li>
-            <a href="javascript:" class="bars"></a>
-            <a class="navbar-brand" href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/logo.svg') }}"
+            <a href="javascript:void(0);" class="bars" style="display: inline;"></a>
+            <a class="navbar-brand" href="javascript:"><img src="{{ asset('assets/images/logo.svg') }}"
                     alt="Alpino"></a>
         </li>
         <li><a href="javascript:" class="menu-sm"><i class="zmdi zmdi-swap"></i></a></li>
@@ -49,7 +49,7 @@
                 <!-- ADMIN  MENU -->
                 @if (Auth::user()->role == '1')
                 <li class=" @if (Request::segment(1) == 'dashboard') active open @endif ">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('admin-dashboard') }}">
                         <i class="zmdi zmdi-home"></i><span>Dashboard</span>
                     </a>
                 </li>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class=" @if (Request::segment(1) == 'category') active open @endif ">
-                    <a href="{{ route('category') }}">
+                    <a href="{{ route('admin-category') }}">
                         <i class="zmdi zmdi-layers"></i><span>Category</span>
                     </a>
                 </li>
@@ -107,8 +107,8 @@
                 </li>
                 <!-- USER MENU -->
                 @elseif (Auth::user()->role == '2')  
-                <li class=" @if (Request::segment(1) == 'dashboard') active open @endif ">
-                    <a href="{{ route('dashboard') }}">
+                <li class=" @if (Request::segment(1) == 'user_dashboard') active open @endif ">
+                    <a href="{{ route('user-dashboard') }}">
                         <i class="zmdi zmdi-home"></i><span>Dashboard</span>
                     </a>
                 </li>

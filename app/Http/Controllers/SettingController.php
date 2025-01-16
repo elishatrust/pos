@@ -13,12 +13,12 @@ class SettingController extends Controller
     
     public function index()
     {
-        if (!Auth::user()) {
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
 
         $data = [
-                'title' => 'POS System v1.0',
+                'title' => 'POS-SYSTEM',
                 'header' => 'Settings'
             ];
 

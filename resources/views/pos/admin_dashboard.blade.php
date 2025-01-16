@@ -29,7 +29,7 @@
                 <div class="col-lg-5 col-md-5 col-sm-12">
                     <h2>Dashboard</h2>
                     <ul class="breadcrumb padding-0">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}"><i class="zmdi zmdi-home"></i></a></li>
                         <li class="breadcrumb-item active">{{ $data['header'] }}</li>
                     </ul>
                 </div>
@@ -67,7 +67,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="{{ route('category') }}">
+                    <a href="{{ route('admin-category') }}">
                         <div class="body l-amber text-center">
                             <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="{{ !empty($category) ? $category : 0 }}" data-speed="2000" data-fresh-interval="700">{{ !empty($category) ? $category : 0 }}</h3>
                             <span class="text-white">Category</span>

@@ -20,11 +20,25 @@ Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
 
 
 ## SUPER USER
-Route::group(['middleware'=>'admin'], function(){
-     Route::get('admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin-dashboard');
+// Route::group(['middleware'=>'admin'], function(){
+//      Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin-dashboard');
 
-});
+// });
 
+# FOR SUPER USER
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+
+     # Dashboard
+     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin-dashboard');
+     
+     # Category
+     Route::get('category', [CategoryController::class, 'list'])->name('admin-category');
+     Route::get('category-view', [CategoryController::class, 'listView'])->name('admin-category-view');
+     Route::post('category/save', [CategoryController::class, 'saveCategory'])->name('admin-category-save');
+     Route::get('category-edit/{id}', [CategoryController::class, 'editCategory'])->name('admin-category-edit');
+     Route::get('category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin-category-delete');
+ });
+ 
 
 
 Route::group(['middleware'=>'user'], function(){
@@ -51,11 +65,11 @@ Route::get('/setting', [SettingController::class, 'index'])->name('setting');
 Route::post('/setting/save', [SettingController::class,'saveSetting'])->name('setting_save');
 
 ## Category
-Route::get('/category', [CategoryController::class, 'list'])->name('category');
-Route::get('/category-view', [CategoryController::class, 'listView'])->name('category_view');
-Route::post('/category/save', [CategoryController::class, 'saveCategory'])->name('category_save');
-Route::get('/category_edit/{id}', [CategoryController::class, 'editCategory']);
-Route::get('/category_delete/{id}', [CategoryController::class, 'deleteCategory']);
+// Route::get('/category', [CategoryController::class, 'list'])->name('category');
+// Route::get('/category-view', [CategoryController::class, 'listView'])->name('category_view');
+// Route::post('/category/save', [CategoryController::class, 'saveCategory'])->name('category_save');
+// Route::get('/category_edit/{id}', [CategoryController::class, 'editCategory']);
+// Route::get('/category_delete/{id}', [CategoryController::class, 'deleteCategory']);
 
 ## Warehouse
 Route::get('/warehouse', [WarehouseController::class, 'list'])->name('warehouse');
