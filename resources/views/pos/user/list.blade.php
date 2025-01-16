@@ -60,7 +60,7 @@
                         <div class="col-md-6 col-sm-12">
                             <label for="">Email <span class="text-danger">*</span></label>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required>
+                                <input type="email" id="user_email" name="user_email" class="form-control" placeholder="Enter email" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
@@ -86,25 +86,16 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <label for="">Warehouse <span class="text-danger">*</span></label>
-                            <select name="warehouse_id" id="warehouse_id" class="form-control show-tick" required>
-                                <option>-- Select --</option>
-                                @foreach ($warehouses as $warehouse)
-                                <option value="{{ $warehouse->id }}">{{ $warehouse->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
                             <label for="">Role <span class="text-danger">*</span></label>
-                            <select name="role" id="role" class="form-control show-tick" required>
+                            <select name="user_role" id="user_role" class="form-control show-tick" required>
                                 <option>-- Select --</option>
                                 <option value="1">Admin</option>
-                                <option value="2">Cashier</option>
+                                <option value="2">Member</option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Status <span class="text-danger">*</span></label>
-                            <select name="u_status" id="u_status" class="form-control show-tick" required>
+                            <select name="user_status" id="user_status" class="form-control show-tick" required>
                                 <option>-- Select --</option>
                                 <option value="0">Active</option>
                                 <option value="1">Inactive</option>
@@ -141,7 +132,7 @@ $("#show_hide_pwd input").on('click', function (event) {
 function getView() {
     jQuery.ajax({
         type: "GET",
-        url: "{{ route('user_view') }}",
+        url: "{{ route('admin-user-view') }}",
         dataType: 'html',
         cache: false,
         success: function (data) {
@@ -161,14 +152,14 @@ function closeModel(){
 }
 
 function deleteUser(id){
-    var conf = confirm("Are you Sure you want to DELETE this User ?");
+    var conf = confirm("Are you Sure you want to delete this user ?");
     if (!conf) {
         return;
     }
 
     jQuery.ajax({
         type: "GET",
-        url: "/user_delete/"+id,
+        url: "/admin/user-delete/"+id,
         dataType: 'json',
         success: function (data) {
             if (data.status == 200) {
@@ -193,7 +184,7 @@ function editUser(id){
 
     jQuery.ajax({
         type: "GET",
-        url: "/user_edit/"+id,
+        url: "/admin/user-edit/"+id,
         dataType: 'json',
         success: function (data) {
             $("#hidden_id").val(data.id)
@@ -204,11 +195,10 @@ function editUser(id){
             $("#username").val(rowData.username);
             $("#full_name").val(rowData.name);
             $("#phone").val(rowData.phone);
-            $("#email").val(rowData.email);
+            $("#user_email").val(rowData.email);
             $("#location").val(rowData.location);
-            $("#warehouse_id").val(rowData.warehouse_id);
-            $("#role").val(rowData.role);
-            $("#u_status").val(rowData.status);
+            $("#user_role").val(rowData.role);
+            $("#user_status").val(rowData.status);
             $("#submitBtn").html("Update");
         }
     });
@@ -218,12 +208,13 @@ function editUser(id){
 function save(e) {
     e.preventDefault();
 
+    $("#submitBtn").html("Update");
     var form = document.getElementById('form');
     var formData = new FormData(form);
 
     jQuery.ajax({
         type: "POST",
-        url: "{{ route('user_save') }}",
+        url: "{{ route('admin-user-save') }}",
         data: formData,
         dataType: 'json',
         processData: false,

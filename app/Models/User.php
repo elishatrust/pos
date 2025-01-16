@@ -46,9 +46,7 @@ class User extends Authenticatable
     static public function getUser()
     {
         return DB::table('users')
-            ->join('warehouses', 'users.warehouse_id', '=', 'warehouses.id')
             ->where('users.archive', '=', 0)
-            ->select('users.*', 'warehouses.name as warehouse_name')
             ->orderBy('users.id', 'desc')
             ->get();
     }

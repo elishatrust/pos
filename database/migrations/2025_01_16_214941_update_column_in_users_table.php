@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            // $table->text("bar_code")->nullable()->after("batch");
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('user_code')->nullable()->change();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->text("bar_code")->nullable()->after("batch");
+        Schema::table('users', function (Blueprint $table) {
+            //
         });
     }
 };

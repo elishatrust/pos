@@ -23,8 +23,7 @@ class UserController extends Controller
                 'header' => 'User',
             ];
 
-        $warehouses = WarehouseModel::getWarehouse();
-        return view('pos.user.list', compact('data','warehouses'));
+        return view('pos.user.list', compact('data'));
     }
 
     public function listView()
@@ -36,19 +35,32 @@ class UserController extends Controller
     public function saveUser(Request $request)
     {
         try {
+
+            $request->validate([
+                'full_name' => 'required|string|max:255',
+                'username' => 'required|string|max:255',
+                'user_email' => 'required|email',
+                'location' => 'required|string|max:255',
+                'password' => 'nullable|string|min:3',
+                'phone' => 'required|digits:10',
+                'user_role' => 'required|string',
+                'user_status' => 'required|in:0,1',
+                'hidden_id' => 'nullable',
+            ]);  
+
             DB::beginTransaction();
 
             $hidden_id = $request->input('hidden_id');
             $full_name = $request->input('full_name');
             $username = $request->input('username');
             $phone = $request->input('phone');
-            $email = $request->input('email');
+            $email = $request->input('user_email');
             $location = $request->input('location');
             $password = $request->input('password');
-            $warehouse_id = $request->input('warehouse_id');
-            $role = $request->input('role');
-            $u_status = $request->input('u_status');
+            $role = $request->input('user_role');
+            $user_status = $request->input('user_status');
             $user_id = Auth::user()->id;
+            $user_code = rand(00000,99999);    
 
             if(empty($hidden_id)):
                 $saveData = [
@@ -57,10 +69,10 @@ class UserController extends Controller
                     'phone' => $phone,
                     'email' => $email,
                     'location' => $location,
-                    'warehouse_id' => $warehouse_id,
                     'role' => $role,
+                    'user_code' => $user_code,
                     'password' => Hash::make($password),
-                    'status' => $u_status,
+                    'status' => $user_status,
                     'created_by' => $user_id,
                     'updated_by' => $user_id,
                     'created_at' => now(),
@@ -79,9 +91,8 @@ class UserController extends Controller
                     'phone' => $phone,
                     'email' => $email,
                     'location' => $location,
-                    'warehouse_id' => $warehouse_id,
                     'role' => $role,
-                    'status' => $u_status,
+                    'status' => $user_status,
                     'updated_by' => $user_id,
                 ];
 

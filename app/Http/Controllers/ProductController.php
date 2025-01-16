@@ -22,13 +22,11 @@ class ProductController extends Controller
         
         $data = [
             'title' => 'POS-SYSTEM',
-            'header' => 'Stock Inventory',
+            'header' => 'Product',
         ];
 
-        $warehouses = WarehouseModel::getWarehouse();
         $categories = CategoryModel::getCategory();
-        $suppliers = User::getUser();
-        return view('pos.product.list', compact('data','warehouses','categories','suppliers'));
+        return view('pos.product.list', compact('data','categories'));
     }
 
     public function listView()
@@ -40,6 +38,19 @@ class ProductController extends Controller
     public function saveProduct(Request $request)
     {
         try {
+            
+            $request->validate([
+                'batch' => 'required|string|max:255',
+                'product' => 'required|string|max:255',
+                'purchase_price' => 'required|numeric|min:0',
+                'selling_price' => 'required|numeric|min:0',
+                'discount' => 'nullable|numeric|min:0|max:1000',
+                'stock' => 'required|integer|min:0',
+                'category_id' => 'required|exists:categories,id',
+                'product_status' => 'required|in:0,1',
+                'hidden_id' => 'nullable',
+            ]);           
+
             DB::beginTransaction();
 
             $number = mt_rand(1000000000, 9999999999);
@@ -48,17 +59,13 @@ class ProductController extends Controller
 
             $hidden_id = $request->input('hidden_id');
             $batch = $request->input('batch');
-            $name = $request->input('product_name');
-            $description = $request->input('description');
-            $cost = $request->input('cost');
-            $selling = $request->input('selling');
-            $qty = $request->input('qty');
-            $mft_date = $request->input('mft_date');
-            $exp_date = $request->input('exp_date');
-            $supplier_id = $request->input('supplier_id');
-            $warehouse_id = $request->input('warehouse_id');
+            $product = $request->input('product');
+            $purchase_price = $request->input('purchase_price');
+            $selling_price = $request->input('selling_price');
+            $discount = $request->input('discount');
+            $stock = $request->input('stock');
+            $prodStatus = $request->input('product_Status');
             $category_id = $request->input('category_id');
-            $u_status = $request->input('u_status');
             $user_id = Auth::user()->id;
 
             if(empty($hidden_id)):
@@ -66,17 +73,13 @@ class ProductController extends Controller
                     'batch' => $batch,
                     'bar_code' => $barcode,
                     'barcode' => $number,
-                    'name' => $name,
-                    'description' => $description,
-                    'cost' => $cost,
-                    'selling' => $selling,
-                    'qty' => $qty,
-                    'mft_date' => $mft_date,
-                    'exp_date' => $exp_date,
-                    'supplier_id' => $supplier_id,
-                    'warehouse_id' => $warehouse_id,
+                    'product' => $product,
+                    'purchase_price' => $purchase_price,
+                    'selling_price' => $selling_price,
+                    'discount' => $discount,
+                    'stock' => $stock,
                     'category_id' => $category_id,
-                    'status' => $u_status,
+                    'status' => $prodStatus,
                     'created_by' => $user_id,
                     'updated_by' => $user_id,
                     'created_at' => now(),
@@ -90,20 +93,16 @@ class ProductController extends Controller
             else:
 
                 $saveData = [
-                    'batch' => $batch,
-                    'name' => $name,
                     // 'bar_code' => $barcode,
                     // 'barcode' => $number,
-                    'description' => $description,
-                    'cost' => $cost,
-                    'selling' => $selling,
-                    'qty' => $qty,
-                    'mft_date' => $mft_date,
-                    'exp_date' => $exp_date,
-                    'supplier_id' => $supplier_id,
-                    'warehouse_id' => $warehouse_id,
+                    'batch' => $batch,
+                    'product' => $product,
+                    'purchase_price' => $purchase_price,
+                    'selling_price' => $selling_price,
+                    'discount' => $discount,
+                    'stock' => $stock,
                     'category_id' => $category_id,
-                    'status' => $u_status,
+                    'status' => $prodStatus,
                     'updated_by' => $user_id,
                 ];
 

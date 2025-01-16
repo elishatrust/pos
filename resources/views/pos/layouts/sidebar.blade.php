@@ -54,8 +54,8 @@
                     </a>
                 </li>
                 <li class=" @if (Request::segment(1) == 'user') active open @endif ">
-                    <a href="{{ route('user') }}">
-                        <i class="zmdi zmdi-accounts-alt"></i><span>Users</span>
+                    <a href="{{ route('admin-user') }}">
+                        <i class="zmdi zmdi-accounts-alt"></i><span>Members</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(1) == 'warehouse') active open @endif ">
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class=" @if (Request::segment(1) == 'product') active open @endif ">
-                    <a href="{{ route('product') }}">
+                    <a href="{{ route('admin-product') }}">
                         <i class="zmdi zmdi-chart"></i><span>Product</span>
                     </a>
                 </li>

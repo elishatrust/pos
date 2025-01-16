@@ -47,7 +47,7 @@
         <div class="row clearfix">
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="{{ route('product') }}">
+                    <a href="{{ route('admin-product') }}">
                         <div class="body l-parpl text-center">
                             <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="{{  !empty($product) ? $product : 0 }}" data-speed="2000" data-fresh-interval="700">{{  !empty($product) ? $product : 0 }}</h3>
                             <span class="text-white">Product</span>
@@ -57,7 +57,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
-                    <a href="{{ route('sales') }}">
+                    <a href="{{ route('admin-user') }}">
                         <div class="body l-seagreen text-center">
                             <h3 class="m-b-0 text-white number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
                             <span class="text-white">Sales</span>

@@ -8,11 +8,11 @@
                 <th>Username</th>
                 <th>Phone</th>
                 <th>Email</th>
-                <th>Role</th>
-                <th>Warehouse</th>
                 <th>Location</th>
+                <th>Code</th>
+                <th>Role</th>
                 <th>Status</th>
-                <th>Created On</th>
+                {{-- <th>Created On</th> --}}
                 <th>Action</th>
             </tr>
         </thead>
@@ -25,28 +25,30 @@
                 <td>{{ $item->username }}</td>
                 <td>{{ $item->phone }}</td>
                 <td>{{ $item->email }}</td>
+                <td>{{ $item->location }}</td>
+                <td>{{ $item->user_code }}</td>
                 <td>
                     @if (!empty($item->role==1))
-                    <span class="badge badge-success m-l-10 hidden-sm-down">Admin</span>
+                    <span class="text-danger">Admin</span>
                     @elseif ($item->role==2)
-                    <span class="badge badge-default m-l-10 hidden-sm-down">Cashier</span>
+                    <span class="text-default">Member</span>
                     @endif
                 </td>
-                <td>{{ $item->warehouse_name }}</td>
-                <td>{{ $item->location }}</td>
                 <td>
                     @if (!empty($item->status==0))
-                    <span class="badge badge-success m-l-10 hidden-sm-down">opened</span>
+                    <span class="badge badge-success m-l-10 hidden-sm-down px-2">Active</span>
                     @else
-                    <span class="badge badge-default m-l-10 hidden-sm-down">Closed</span>
+                    <span class="badge badge-default m-l-10 hidden-sm-down px-2">Inactive</span>
                     @endif
                 </td>
+                {{-- <td><p class="mt-2">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p></td> --}}
                 <td>
-                    <p class="mt-2">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
-                </td>
-                <td>
-                    <button title="Edit Action"  onclick="editUser({{$item->id}})" class="btn btn-icon btn-neutral btn-icon-mini"><i class="zmdi zmdi-edit"></i></button>
-                    <button title="Delete Action" onclick="deleteUser({{$item->id}})"  class="btn btn-icon btn-neutral btn-icon-mini"><i class="zmdi zmdi-delete"></i></button>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Edit Action"  onclick="editUser({{$item->id}})">
+                        <i class="zmdi zmdi-edit text-info"></i>
+                    </button>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Delete Action" onclick="deleteUser({{$item->id}})">
+                        <i class="zmdi zmdi-delete text-danger"></i>
+                    </button>
                 </td>
             </tr>
             @php $n++; @endphp

@@ -14,17 +14,13 @@ class ProductModel extends Model
 
     static public function getProduct()
     {
-        // return DB::table('products')->where('archive', '=', 0)->orderBy('id','desc')->get();
-
         return DB::table('products')
-            ->join('warehouses', 'products.warehouse_id', '=', 'warehouses.id')
+            ->join('users', 'products.created_by','=','users.id')
             ->join('categories', 'products.category_id', '=', 'categories.id')
-            ->join('users', 'products.supplier_id', '=', 'users.id')
             ->where('products.archive', '=', 0)
             ->select('products.*',
-                'warehouses.name as warehouse_name',
+                'users.name as user_name',
                 'categories.name as category_name',
-                'users.name as user_name'
                 )
             ->orderBy('products.id', 'desc')
             ->get();

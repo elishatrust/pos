@@ -18,10 +18,10 @@ class CategoryController extends Controller
         }
         
         $data = [
-                'title' => 'POS-SYSTEM',
-                'header' => 'Category',
-                'sub_header' => 'Category List'
-            ];
+            'title' => 'POS-SYSTEM',
+            'header' => 'Category',
+            'sub_header' => 'Category List'
+        ];
         return view('pos.category.list', compact('data'));
     }
 
@@ -34,11 +34,18 @@ class CategoryController extends Controller
     public function saveCategory(Request $request)
     {
         try {
+
+            $request->validate([
+                'category' => 'required|string|max:255',
+                'category_status' => 'required|in:0,1',
+                'hidden_id' => 'nullable'
+            ]);
+    
             DB::beginTransaction();
 
             $hidden_id = $request->input('hidden_id');
             $category = $request->input('category');
-            $status = $request->input('catStatus');
+            $status = $request->input('category_status');
             $user_id = Auth::user()->id;
 
             if(empty($hidden_id)):
@@ -80,7 +87,7 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
 
-            return response()->json(['status' => 500, 'message' => $e->getMessage()]);
+            return response()->json(['status' => 500, 'message' => $e->getMessage()]);    
         }
     }
 

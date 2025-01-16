@@ -19,12 +19,6 @@ Route::get('/reset-password', [LoginController::class, 'resetPassword'])->name('
 Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
 
 
-## SUPER USER
-// Route::group(['middleware'=>'admin'], function(){
-//      Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin-dashboard');
-
-// });
-
 # FOR SUPER USER
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
@@ -37,8 +31,25 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::post('category/save', [CategoryController::class, 'saveCategory'])->name('admin-category-save');
      Route::get('category-edit/{id}', [CategoryController::class, 'editCategory'])->name('admin-category-edit');
      Route::get('category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin-category-delete');
+
+     # Product
+     Route::get('product', [ProductController::class, 'list'])->name('admin-product');
+     Route::get('product-view', [ProductController::class, 'listView'])->name('admin-product-view');
+     Route::post('product/save', [ProductController::class, 'saveProduct'])->name('admin-product-save');
+     Route::get('product-edit/{id}', [ProductController::class, 'editProduct'])->name('admin-product-edit');
+     Route::get('product-delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin-product-delete');
+
+     # Users
+     Route::get('user', [UserController::class, 'list'])->name('admin-user');
+     Route::get('user-view', [UserController::class, 'listView'])->name('admin-user-view');
+     Route::post('user/save', [UserController::class, 'saveUser'])->name('admin-user-save');
+     Route::get('user-edit/{id}', [UserController::class, 'editUser'])->name('admin-user-edit');
+     Route::get('user-delete/{id}', [UserController::class, 'deleteUser'])->name('admin-user-delete');
  });
  
+
+
+ Route::get('/user_data', [UserController::class, 'userData'])->name('user_data');
 
 
 Route::group(['middleware'=>'user'], function(){
@@ -48,12 +59,6 @@ Route::group(['middleware'=>'user'], function(){
 
 
 ## NORMAL USER
-Route::get('/user_data', [UserController::class, 'userData'])->name('user_data');
-Route::get('/user', [UserController::class, 'list'])->name('user');
-Route::get('/user-view', [UserController::class, 'listView'])->name('user_view');
-Route::post('/user/save', [UserController::class, 'saveUser'])->name('user_save');
-Route::get('/user_edit/{id}', [UserController::class, 'editUser']);
-Route::get('/user_delete/{id}', [UserController::class, 'deleteUser']);
 
 ## Search Customer
 Route::get('/search_customer/{text}', [UserController::class,'searchCustomer']);
@@ -78,12 +83,6 @@ Route::post('/warehouse/save', [WarehouseController::class, 'saveWarehouse'])->n
 Route::get('/warehouse_edit/{id}', [WarehouseController::class, 'editWarehouse']);
 Route::get('/warehouse_delete/{id}', [WarehouseController::class, 'deleteWarehouse']);
 
-## Product
-Route::get('/product', [ProductController::class, 'list'])->name('product');
-Route::get('/product-view', [ProductController::class, 'listView'])->name('product_view');
-Route::post('/product/save', [ProductController::class, 'saveProduct'])->name('product_save');
-Route::get('/product_edit/{id}', [ProductController::class, 'editProduct']);
-Route::get('/product_delete/{id}', [ProductController::class, 'deleteProduct']);
 
 ## Sales
 Route::get('/sales', [SalesController::class, 'list'])->name('sales');

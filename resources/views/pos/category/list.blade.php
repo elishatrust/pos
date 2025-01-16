@@ -35,7 +35,7 @@
             </div>
             <div class="modal-body">
 
-                <form id="form" onsubmit="save(e)" enctype="form-data/multipart">
+                <form id="form" onsubmit="save(event)" enctype="form-data/multipart">
                     @csrf
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
                     <div class="row">
@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Status <span class="text-danger">*</span></label>
-                            <select name="catStatus" id="catStatus" class="form-control show-tick" required="">
+                            <select name="category_status" id="category_status" class="form-control show-tick" required="">
                                 <option>Select</option>
                                 <option value="0">Active</option>
                                 <option value="1">Inactive</option>
@@ -86,7 +86,6 @@ function getView() {
 
 function clear_input() {
     document.getElementById('form').reset();
-    $('form#form')[0].reset();
     $("#hidden_id").val("")
     getView()
 }
@@ -96,11 +95,11 @@ function closeModel(){
 }
 
 function deleteCategory(id){
-    var conf = confirm("Are you Sure you want to delete this Category ?");
+    var conf = confirm("Are you Sure you want to delete this category ?");
     if (!conf) {
         return;
     }
-
+    
     jQuery.ajax({
         type: "GET",
         url: "/admin/category-delete/"+id,
@@ -136,7 +135,7 @@ function editCategory(id){
             var rowData=data.data;
 
             $("#category").val(rowData.name);
-            $("#catStatus").val(rowData.status);
+            $("#category_status").val(rowData.status);
 
             $("#submitBtn").html("Update");
 
