@@ -35,10 +35,11 @@ class LoginController extends Controller
         }
 
         $credentials = $request->only('email', 'password');
-        $userRole = Auth::user();
 
         if (Auth::attempt($credentials)) 
         {
+            $userRole = Auth::user();
+            
             if($userRole->role == '1')
             {
                 return response()->json([

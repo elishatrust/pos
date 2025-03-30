@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
@@ -24,6 +25,13 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
      # Dashboard
      Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin-dashboard');
+
+     # Users
+     Route::get('user', [UserController::class, 'list'])->name('admin-user');
+     Route::get('user-view', [UserController::class, 'listView'])->name('admin-user-view');
+     Route::post('user/save', [UserController::class, 'saveUser'])->name('admin-user-save');
+     Route::get('user-edit/{id}', [UserController::class, 'editUser'])->name('admin-user-edit');
+     Route::get('user-delete/{id}', [UserController::class, 'deleteUser'])->name('admin-user-delete');
      
      # Category
      Route::get('category', [CategoryController::class, 'list'])->name('admin-category');
@@ -32,6 +40,20 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::get('category-edit/{id}', [CategoryController::class, 'editCategory'])->name('admin-category-edit');
      Route::get('category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin-category-delete');
 
+     ## Warehouse
+     Route::get('/warehouse', [WarehouseController::class, 'list'])->name('admin-warehouse');
+     Route::get('/warehouse-view', [WarehouseController::class, 'listView'])->name('admin-warehouse-view');
+     Route::post('/warehouse/save', [WarehouseController::class, 'saveWarehouse'])->name('admin-warehouse-save');
+     Route::get('/warehouse-edit/{id}', [WarehouseController::class, 'editWarehouse'])->name('admin-warehouse-edit');
+     Route::get('/warehouse-delete/{id}', [WarehouseController::class, 'deleteWarehouse']);
+
+     ## Sales
+     Route::get('/sales', [SalesController::class, 'list'])->name('admin-sales');
+     Route::get('/sales-view', [SalesController::class, 'listView'])->name('admin-sales-view');
+     Route::post('/sales/save', [SalesController::class, 'saveSales'])->name('admin-sales-save');
+     Route::get('/sales-edit/{id}', [SalesController::class, 'editSales'])->name('admin-sales-edit');
+     Route::get('/sales-delete/{id}', [SalesController::class, 'deleteSales'])->name('admin-sales-delete');
+
      # Product
      Route::get('product', [ProductController::class, 'list'])->name('admin-product');
      Route::get('product-view', [ProductController::class, 'listView'])->name('admin-product-view');
@@ -39,12 +61,12 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::get('product-edit/{id}', [ProductController::class, 'editProduct'])->name('admin-product-edit');
      Route::get('product-delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin-product-delete');
 
-     # Users
-     Route::get('user', [UserController::class, 'list'])->name('admin-user');
-     Route::get('user-view', [UserController::class, 'listView'])->name('admin-user-view');
-     Route::post('user/save', [UserController::class, 'saveUser'])->name('admin-user-save');
-     Route::get('user-edit/{id}', [UserController::class, 'editUser'])->name('admin-user-edit');
-     Route::get('user-delete/{id}', [UserController::class, 'deleteUser'])->name('admin-user-delete');
+     # Expense
+     Route::get('expense', [ExpenseController::class, 'list'])->name('admin-expense');
+     Route::get('expense-view', [ExpenseController::class, 'listView'])->name('admin-expense-view');
+     Route::post('expense/save', [ExpenseController::class, 'saveExpense'])->name('admin-expense-save');
+     Route::get('expense-edit/{id}', [ExpenseController::class, 'editExpense'])->name('admin-expense-edit');
+     Route::get('expense-delete/{id}', [ExpenseController::class, 'deleteExpense'])->name('admin-expense-delete');
  });
  
 
@@ -68,31 +90,6 @@ Route::get('/search_product/{text}', [ProductController::class,'searchProduct'])
 ## Setting
 Route::get('/setting', [SettingController::class, 'index'])->name('setting');
 Route::post('/setting/save', [SettingController::class,'saveSetting'])->name('setting_save');
-
-## Category
-// Route::get('/category', [CategoryController::class, 'list'])->name('category');
-// Route::get('/category-view', [CategoryController::class, 'listView'])->name('category_view');
-// Route::post('/category/save', [CategoryController::class, 'saveCategory'])->name('category_save');
-// Route::get('/category_edit/{id}', [CategoryController::class, 'editCategory']);
-// Route::get('/category_delete/{id}', [CategoryController::class, 'deleteCategory']);
-
-## Warehouse
-Route::get('/warehouse', [WarehouseController::class, 'list'])->name('warehouse');
-Route::get('/warehouse-view', [WarehouseController::class, 'listView'])->name('warehouse_view');
-Route::post('/warehouse/save', [WarehouseController::class, 'saveWarehouse'])->name('warehouse_save');
-Route::get('/warehouse_edit/{id}', [WarehouseController::class, 'editWarehouse']);
-Route::get('/warehouse_delete/{id}', [WarehouseController::class, 'deleteWarehouse']);
-
-
-## Sales
-Route::get('/sales', [SalesController::class, 'list'])->name('sales');
-Route::get('/sales-view', [SalesController::class, 'listView'])->name('sales_view');
-Route::post('/save-sales', [SalesController::class, 'saveSales'])->name('save_sales');
-
-
-
-
-
 
 ## Settings
 Route::get('/settings', [SettingController::class,'index'])->name('settings');

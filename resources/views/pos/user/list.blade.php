@@ -78,6 +78,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <span class="text-danger" id="password-option">Note: Enter a password if you want to change it.</span>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Location <span class="text-danger">*</span></label>
@@ -181,6 +182,7 @@ function editUser(id){
 
     $("#submitBtn").html("Update");
     $('#largeModal').modal('show');
+    $("#password-option").show();
 
     jQuery.ajax({
         type: "GET",
@@ -204,7 +206,7 @@ function editUser(id){
     });
 }
 
-
+$("#password-option").hide();
 function save(e) {
     e.preventDefault();
 

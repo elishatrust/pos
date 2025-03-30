@@ -31,7 +31,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="largeModalLabel">Warehouse </h4><strong class="text-danger float-right">Required *</strong>
+                <h4 class="title" id="largeModalLabel">Expense </h4><strong class="text-danger float-right">Required *</strong>
             </div>
             <div class="modal-body">
 
@@ -39,45 +39,24 @@
                     @csrf
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Name <span class="text-danger">*</span></label>
+                        <div class="col-md-12 col-sm-12">
+                            <label for="">Description <span class="text-danger">*</span></label>
                             <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter warehouse" required>
+                                <textarea name="description" id="description" cols="30" rows="3" class="form-control" placeholder="Type here.." required></textarea>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <label for="">Phone <span class="text-danger">*</span></label>
+                            <label for="">Amount <span class="text-danger">*</span></label>
                             <div class="form-group">
-                                <input type="number" id="phone" name="phone" class="form-control" placeholder="Enter phone number" min="0" required>
+                                <input type="number" id="amount" name="amount" class="form-control" placeholder="Enter Amount" min="0" required>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Email <span class="text-danger">*</span></label>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Location <span class="text-danger">*</span></label>
-                            <div class="form-group">
-                                <input type="text" id="location" name="location" class="form-control" placeholder="Enter location" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Manager <span class="text-danger">*</span></label>
-                            <select name="user_id" id="user_id" class="form-control show-tick" required>
-                                <option>-- Select --</option>
-                                @foreach ($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Status <span class="text-danger">*</span></label>
-                            <select name="show_status" id="show_status" class="form-control show-tick" required>
-                                <option>-- Select --</option>
-                                <option value="0">Opened</option>
-                                <option value="1">Closed</option>
+                            <select name="showStatus" id="showStatus" class="form-control show-tick" required>
+                                <option>~Select~</option>
+                                <option value="0">Active</option>
+                                <option value="1">Inactive</option>
                             </select>
                         </div>
                     </div>
@@ -102,7 +81,7 @@ $(document).ready(function () {
 function getView() {
     jQuery.ajax({
         type: "GET",
-        url: "{{ route('admin-warehouse-view') }}",
+        url: "{{ route('admin-expense-view') }}",
         dataType: 'html',
         cache: false,
         success: function (data) {
@@ -121,15 +100,15 @@ function closeModel(){
     $('#largeModal').modal('hide');
 }
 
-function deleteWarehouse(id){
-    var conf = confirm("Are you Sure you want to delete this Warehouse ?");
+function deleteExpense(id){
+    var conf = confirm("Are you Sure you want to delete this expense ?");
     if (!conf) {
         return;
     }
 
     jQuery.ajax({
             type: "GET",
-            url: "/admin/warehouse-delete/"+id,
+            url: "/admin/expense-delete/"+id,
             dataType: 'json',
             success: function (data) {
                 if (data.status == 200) {
@@ -145,7 +124,7 @@ function deleteWarehouse(id){
     });
 }
 
-function editWarehouse(id){
+function editExpense(id){
     document.getElementById('form').reset();
     $("#hidden_id").val("")
 
@@ -154,19 +133,16 @@ function editWarehouse(id){
 
     jQuery.ajax({
         type: "GET",
-        url: "/admin/warehouse-edit/"+id,
+        url: "/admin/expense-edit/"+id,
         dataType: 'json',
         success: function (data) {
             $("#hidden_id").val(data.id)
 
             var rowData=data.data;
 
-            $("#name").val(rowData.name);
-            $("#phone").val(rowData.phone);
-            $("#email").val(rowData.email);
-            $("#location").val(rowData.location);
-            $("#user_id").val(rowData.manager);
-            $("#show_status").val(rowData.show_status);
+            $("#description").val(rowData.description);
+            $("#amount").val(rowData.amount);
+            $("#showStatus").val(rowData.status);
 
             $("#submitBtn").html("Update");
         }
@@ -182,7 +158,7 @@ function save(e) {
 
     jQuery.ajax({
         type: "POST",
-        url: "{{ route('admin-warehouse-save') }}",
+        url: "{{ route('admin-expense-save') }}",
         data: formData,
         dataType: 'json',
         processData: false,

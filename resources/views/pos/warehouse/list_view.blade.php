@@ -10,7 +10,7 @@
                 <th>Location</th>
                 <th>Manager</th>
                 <th>Status</th>
-                <th>Created By/On</th>
+                {{-- <th>Created By/On</th> --}}
                 <th>Action</th>
             </tr>
         </thead>
@@ -31,13 +31,17 @@
                     <span class="badge badge-warning m-l-10 hidden-sm-down">Closed</span>
                     @endif
                 </td>
-                <td>
+                {{-- <td>
                     <span>{{ $item->user_name }}</span>
                     <p class="mt-2">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
-                </td>
+                </td> --}}
                 <td>
-                    <button title="Edit Action"  onclick="editWarehouse({{$item->id}})" class="btn btn-icon btn-neutral btn-icon-mini"><i class="zmdi zmdi-edit"></i></button>
-                    <button title="Delete Action" onclick="deleteWarehouse({{$item->id}})"  class="btn btn-icon btn-neutral btn-icon-mini"><i class="zmdi zmdi-delete"></i></button>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Edit Action"  onclick="editWarehouse({{$item->id}})">
+                        <i class="zmdi zmdi-edit text-info"></i>
+                    </button>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Delete Action" onclick="deleteWarehouse({{$item->id}})">
+                        <i class="zmdi zmdi-delete text-danger"></i>
+                    </button>
                 </td>
             </tr>
             @php $n++; @endphp

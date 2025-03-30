@@ -282,7 +282,7 @@ function calculateTotal() {
 function getView() {
     jQuery.ajax({
         type: "GET",
-        url: "{{ route('sales_view') }}",
+        url: "{{ route('admin-sales-view') }}",
         dataType: 'html',
         cache: false,
         success: function (data) {
@@ -302,14 +302,14 @@ function closeModel(){
 }
 
 function deleteProduct(id){
-    var conf = confirm("Are you Sure you want to DELETE this Product ?");
+    var conf = confirm("Are you Sure you want to delete this product ?");
     if (!conf) {
         return;
     }
 
     jQuery.ajax({
         type: "GET",
-        url: "/product_delete/"+id,
+        url: "/admin-sales-delete/"+id,
         dataType: 'json',
         success: function (data) {
             if (data.status == 200) {
@@ -334,7 +334,7 @@ function editProduct(id){
 
     jQuery.ajax({
         type: "GET",
-        url: "/product_edit/"+id,
+        url: "/admin-sales-edit/"+id,
         dataType: 'json',
         success: function (data) {
             $("#hidden_id").val(data.id)
@@ -367,7 +367,7 @@ function save(e) {
 
     jQuery.ajax({
         type: "POST",
-        url: "{{ route('save_sales') }}",
+        url: "{{ route('admin-sales-save') }}",
         data: formData,
         dataType: 'json',
         processData: false,

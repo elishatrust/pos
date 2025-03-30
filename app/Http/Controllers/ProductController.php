@@ -37,6 +37,7 @@ class ProductController extends Controller
 
     public function saveProduct(Request $request)
     {
+        // dd($request->all());
         try {
             
             $request->validate([
@@ -47,7 +48,7 @@ class ProductController extends Controller
                 'discount' => 'nullable|numeric|min:0|max:1000',
                 'stock' => 'required|integer|min:0',
                 'category_id' => 'required|exists:categories,id',
-                'product_status' => 'required|in:0,1',
+                'productStatus' => 'required|in:0,1',
                 'hidden_id' => 'nullable',
             ]);           
 
@@ -64,7 +65,7 @@ class ProductController extends Controller
             $selling_price = $request->input('selling_price');
             $discount = $request->input('discount');
             $stock = $request->input('stock');
-            $prodStatus = $request->input('product_Status');
+            $productStatus = $request->input('productStatus');
             $category_id = $request->input('category_id');
             $user_id = Auth::user()->id;
 
@@ -79,7 +80,7 @@ class ProductController extends Controller
                     'discount' => $discount,
                     'stock' => $stock,
                     'category_id' => $category_id,
-                    'status' => $prodStatus,
+                    'status' => $productStatus,
                     'created_by' => $user_id,
                     'updated_by' => $user_id,
                     'created_at' => now(),
@@ -102,7 +103,7 @@ class ProductController extends Controller
                     'discount' => $discount,
                     'stock' => $stock,
                     'category_id' => $category_id,
-                    'status' => $prodStatus,
+                    'status' => $productStatus,
                     'updated_by' => $user_id,
                 ];
 

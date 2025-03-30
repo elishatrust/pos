@@ -35,6 +35,15 @@
 <script src="{{ asset('assets/plugins/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('assets/plugins/jquery.min.js')}}"></script>
 </head>
+
+@php 
+if (!Auth::check()) {
+    Auth::logout();
+    redirect()->route('login');
+    exit;
+}
+@endphp
+
 <body class="theme-black">       
 
 

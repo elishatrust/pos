@@ -43,8 +43,12 @@
                     <p class="mt-2">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
                 </td>
                 <td>
-                    <button title="Edit Action"  onclick="editProduct({{$item->id}})" class="btn btn-icon btn-neutral btn-icon-mini234"><i class="zmdi zmdi-edit"></i></button>
-                    <button title="Delete Action" onclick="deleteProduct({{$item->id}})"  class="btn btn-icon btn-neutral btn-icon-mini234"><i class="zmdi zmdi-delete"></i></button>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Edit Action"  onclick="editSales({{$item->id}})">
+                        <i class="zmdi zmdi-edit text-info"></i>
+                    </button>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Delete Action" onclick="deleteSales({{$item->id}})">
+                        <i class="zmdi zmdi-delete text-danger"></i>
+                    </button>
                 </td>
             </tr>
             @php $n++; @endphp

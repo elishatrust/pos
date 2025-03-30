@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Status <span class="text-danger">*</span></label>
-                            <select name="prodStatus" id="prodStatus" class="form-control show-tick" required>
+                            <select name="productStatus" id="productStatus" class="form-control show-tick" required>
                                 <option>-- Select --</option>
                                 <option value="0">Active</option>
                                 <option value="1">Inactive</option>
@@ -180,7 +180,7 @@ function editProduct(id){
             $("#discount").val(rowData.discount);
             $("#stock").val(rowData.stock);
             $("#category_id").val(rowData.category_id);
-            $("#prodStatus").val(rowData.status);
+            $("#productStatus").val(rowData.status);
             $("#submitBtn").html("Update");
         }
     });

@@ -72,5 +72,13 @@ class User extends Authenticatable
             ->where('archive', 0)
             ->get();
     }
+    static public function getCountable()
+    {
+        return DB::table('users')->where('archive','=',0)->count();
+    }
+    static public function getCountableInactive()
+    {
+        return DB::table('users')->where('status','=',1)->where('archive','=',0)->count();
+    }
 
 }

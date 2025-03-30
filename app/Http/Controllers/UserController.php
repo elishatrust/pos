@@ -26,9 +26,25 @@ class UserController extends Controller
         return view('pos.user.list', compact('data'));
     }
 
-    public function listView()
+    public function listView(Request $request)
     {
         $data = User::getUser();
+
+        // Search Start
+        $search = User::orderBy('id','desc');
+        if($request->id) 
+        $search = $search->where('id','=',$request->id);
+
+        if($request->name) 
+        $search = $search->where('name','like','%'.$request->name.'%');
+
+        if($request->username) 
+        $search = $search->where('username','like','%'.$request->username.'%');
+    
+        if($request->email) 
+        $search = $search->where('email','like','%'.$request->email.'%');
+        // Search End
+
         return view('pos.user.list_view', compact('data'));
     }
 

@@ -11,6 +11,25 @@ class ProductModel extends Model
     use HasFactory;
 
     protected $table = 'products';
+    protected $fillable = [
+        'batch', 
+        'bar_code', 
+        'barcode', 
+        'product', 
+        'purchase_price', 
+        'selling_price', 
+        'discount', 
+        'stock', 
+        'category_id', 
+        'status', 
+        'created_by',
+        'updated_by',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(CategoryModel::class, 'category_id');
+    }
 
     static public function getProduct()
     {
@@ -41,7 +60,6 @@ class ProductModel extends Model
     {
         return DB::table('products')->where('archive','=',0)->count();
     }
-
 
     static public function searchProduct($query)
     {

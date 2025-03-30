@@ -6,6 +6,7 @@ use App\Models\ProductModel;
 use App\Models\WarehouseModel;
 use App\Models\CategoryModel;
 use App\Models\SaleModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,16 +27,18 @@ class DashboardController extends Controller
 
         if ($userRole == '1') 
         {
-            $warehouse = WarehouseModel::getCountable();
+            $user = User::getCountable();
+            $inactiveUser = User::getCountableInactive();
             $product = ProductModel::getCountable();
             $category = CategoryModel::getCountable();
+            $warehouse = WarehouseModel::getCountable();
             // $sales = SaleModel::getCountable();    
-            return view('pos.admin_dashboard', compact('data', 'warehouse', 'product', 'category'));
+            return view('pos.dashboard.admin_dashboard', compact('data', 'user','inactiveUser','warehouse', 'product', 'category'));
         } 
         elseif ($userRole == '2') 
         {
             $warehouse = $product = $category = null;
-            return view('pos.user_dashboard', compact('data', 'warehouse', 'product', 'category'));
+            return view('pos.dashboard.user_dashboard', compact('data', 'warehouse', 'product', 'category'));
         } 
         else 
         {
