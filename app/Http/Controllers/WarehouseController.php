@@ -19,20 +19,20 @@ class WarehouseController extends Controller
         
         $data = [
                 'title' => 'POS-SYSTEM',
-                'header' => 'Warehouse',
+                'header' => 'Supplier',
             ];
 
         $users = User::getUser();
-        return view('pos.warehouse.list', compact('data','users'));
+        return view('pos.supplier.list', compact('data','users'));
     }
 
     public function listView()
     {
         $data = WarehouseModel::getWarehouse();
-        return view('pos.warehouse.list_view', compact('data'));
+        return view('pos.supplier.list_view', compact('data'));
     }
 
-    public function saveWarehouse(Request $request)
+    public function saveSupplier(Request $request)
     {
         try {
             DB::beginTransaction();
@@ -62,7 +62,7 @@ class WarehouseController extends Controller
 
                 ## Save data
                 DB::table('warehouses')->insertGetId($saveData);
-                $message='Warehouse saved successfully';
+                $message='Supplier saved successfully';
 
             else:
 
@@ -83,7 +83,7 @@ class WarehouseController extends Controller
 
                 ## Save data
                 DB::table('warehouses')->where($condition)->update($saveData);
-                $message='Warehouse updated successfully';
+                $message='Supplier updated successfully';
 
             endif;
 
@@ -103,13 +103,13 @@ class WarehouseController extends Controller
         return response()->json(['data'=>$data, 'id'=>Crypt::encrypt($id)]);
     }
 
-    public function deleteWarehouse($id)
+    public function deleteSupplier($id)
     {
         try {
             $data = WarehouseModel::updateWarehouse($id);
             if($data)
             {
-                $message='Warehouse deleted successfully';
+                $message='Supplier deleted successfully';
                 return response()->json(['status' => 200, 'message' => $message]);
             }else{
                 $message='Something went wrong. Try again!';

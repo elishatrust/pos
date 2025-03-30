@@ -31,7 +31,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="largeModalLabel">Warehouse </h4><strong class="text-danger float-right">Required *</strong>
+                <h4 class="title" id="largeModalLabel">Purchase </h4><strong class="text-danger float-right">Required *</strong>
             </div>
             <div class="modal-body">
 
@@ -40,45 +40,39 @@
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <label for="">Name <span class="text-danger">*</span></label>
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter warehouse" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Phone <span class="text-danger">*</span></label>
-                            <div class="form-group">
-                                <input type="number" id="phone" name="phone" class="form-control" placeholder="Enter phone number" min="0" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Email <span class="text-danger">*</span></label>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Location <span class="text-danger">*</span></label>
-                            <div class="form-group">
-                                <input type="text" id="location" name="location" class="form-control" placeholder="Enter location" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="">Manager <span class="text-danger">*</span></label>
-                            <select name="user_id" id="user_id" class="form-control show-tick" required>
-                                <option>-- Select --</option>
-                                @foreach ($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            <label for="">Supplier <span class="text-danger">*</span></label>
+                            <select name="supplier_id" id="supplier_id" class="form-control show-tick" required>
+                                <option>~Select~</option>
+                                @foreach ($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="">Status <span class="text-danger">*</span></label>
-                            <select name="show_status" id="show_status" class="form-control show-tick" required>
-                                <option>-- Select --</option>
-                                <option value="0">Opened</option>
-                                <option value="1">Closed</option>
+                            <select name="showStatus" id="showStatus" class="form-control show-tick" required>
+                                <option>~Select~</option>
+                                <option value="0">Active</option>
+                                <option value="1">Inactive</option>
                             </select>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="">Items <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="number" id="total_item" name="total_item" class="form-control" placeholder="Total items" min="0" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="">Price <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="number" id="total_price" name="total_price" class="form-control" placeholder="Total price" min="0" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="">Discount <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="number" id="discount" name="discount" class="form-control" placeholder="Total discount" min="0" required>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -102,7 +96,7 @@ $(document).ready(function () {
 function getView() {
     jQuery.ajax({
         type: "GET",
-        url: "{{ route('admin-warehouse-view') }}",
+        url: "{{ route('admin-purchase-view') }}",
         dataType: 'html',
         cache: false,
         success: function (data) {
@@ -121,15 +115,15 @@ function closeModel(){
     $('#largeModal').modal('hide');
 }
 
-function deleteWarehouse(id){
-    var conf = confirm("Are you Sure you want to delete this Warehouse ?");
+function deletePurchase(id){
+    var conf = confirm("Are you Sure you want to delete this purchase?");
     if (!conf) {
         return;
     }
 
     jQuery.ajax({
             type: "GET",
-            url: "/admin/warehouse-delete/"+id,
+            url: "/admin/purchase-delete/"+id,
             dataType: 'json',
             success: function (data) {
                 if (data.status == 200) {
@@ -145,7 +139,7 @@ function deleteWarehouse(id){
     });
 }
 
-function editWarehouse(id){
+function editPurchase(id){
     document.getElementById('form').reset();
     $("#hidden_id").val("")
 
@@ -154,19 +148,18 @@ function editWarehouse(id){
 
     jQuery.ajax({
         type: "GET",
-        url: "/admin/warehouse-edit/"+id,
+        url: "/admin/purchase-edit/"+id,
         dataType: 'json',
         success: function (data) {
             $("#hidden_id").val(data.id)
 
             var rowData=data.data;
 
-            $("#name").val(rowData.name);
-            $("#phone").val(rowData.phone);
-            $("#email").val(rowData.email);
-            $("#location").val(rowData.location);
-            $("#user_id").val(rowData.manager);
-            $("#show_status").val(rowData.show_status);
+            $("#supplier_id").val(rowData.supplier_id);
+            $("#total_item").val(rowData.total_item);
+            $("#total_price").val(rowData.total_price);
+            $("#discount").val(rowData.discount);
+            $("#showStatus").val(rowData.status);
 
             $("#submitBtn").html("Update");
         }
@@ -182,7 +175,7 @@ function save(e) {
 
     jQuery.ajax({
         type: "POST",
-        url: "{{ route('admin-warehouse-save') }}",
+        url: "{{ route('admin-purchase-save') }}",
         data: formData,
         dataType: 'json',
         processData: false,

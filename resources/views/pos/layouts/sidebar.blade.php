@@ -248,7 +248,7 @@
                 @if (Auth::user()->role == '1')
                 <li class=" @if (Request::segment(2) == 'dashboard') active open @endif ">
                     <a href="{{ route('admin-dashboard') }}">
-                        <i class="zmdi zmdi-home"></i><span>Dashboard</span>
+                        <i class="zmdi zmdi-apps"></i><span>Dashboard</span>
                     </a>
                 </li>                 
                 <li class=" @if (Request::segment(2) == 'user') active open @endif ">
@@ -256,51 +256,51 @@
                         <i class="zmdi zmdi-accounts-alt"></i><span>Users</span>
                     </a>
                 </li>
-                <li class=" @if (Request::segment(2) == 'warehouse') active open @endif ">
-                    <a href="{{ route('admin-warehouse') }}">
-                        <i class="zmdi zmdi-apps"></i><span>Warehouse</span>
+                <li class=" @if (Request::segment(2) == 'supplier') active open @endif ">
+                    <a href="{{ route('admin-supplier') }}">
+                        <i class="zmdi zmdi-truck"></i><span>Supplier</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'category') active open @endif ">
                     <a href="{{ route('admin-category') }}">
-                        <i class="zmdi zmdi-layers"></i><span>Category</span>
+                        <i class="zmdi zmdi-dialpad"></i><span>Category</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'product') active open @endif ">
                     <a href="{{ route('admin-product') }}">
-                        <i class="zmdi zmdi-chart"></i><span>Product</span>
+                        <i class="zmdi zmdi-delicious"></i><span>Product</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'sales') active open @endif ">
                     <a href="{{ route('admin-sales') }}">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Sales</span>
+                        <i class="zmdi zmdi-shopping-basket"></i><span>Sales</span>
                     </a>
                 </li>
                 <li class="header">TRANSACTION</li>
                 <li class=" @if (Request::segment(2) == 'expense') active open @endif ">
                     <a href="{{ route('admin-expense') }}">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Expense</span>
+                        <i class="zmdi zmdi-undo"></i><span>Expense</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'purchase') active open @endif ">
+                    <a href="{{ route('admin-purchase') }}">
+                        <i class="zmdi zmdi-redo"></i><span>Purchase</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
                     <a href="#">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Purchase</span>
+                        <i class="zmdi zmdi-money-box"></i><span>New Transaction</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
                     <a href="#">
-                        <i class="zmdi zmdi-swap-alt"></i><span>New Transaction</span>
-                    </a>
-                </li>
-                <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
-                    <a href="#">
-                        <i class="zmdi zmdi-swap-alt"></i><span>Active Transaction</span>
+                        <i class="zmdi zmdi-money"></i><span>Active Transaction</span>
                     </a>
                 </li>
                 <li class="header">REPORT</li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">
                     <a href="#">
-                        <i class="zmdi zmdi-delicious"></i><span>Income</span>
+                        <i class="zmdi zmdi-chart"></i><span>Income</span>
                     </a>
                 </li>
                 <!-- USER MENU -->

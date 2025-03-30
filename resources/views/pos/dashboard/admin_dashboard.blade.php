@@ -51,7 +51,20 @@
                                 <p class="m-b-20"><i class="zmdi zmdi-account-box zmdi-hc-3x col-green"></i></p>
                                 <span>TOTAL USER</span>
                                 <h3 class="m-b-0 number count-to" data-from="0" data-to="{{ !empty($user) ? $user : 0 }}" data-speed="2000" data-fresh-interval="700">{{ !empty($user) ? $user : 0 }}</h3>
-                                <small class="text-muted">{{ (($user - $inactiveUser)/$user) *100 }}% Active User</small>
+                                <small class="text-muted">{{ round((($user - $inactiveUser) / $user) *100) }}% Active User</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <a href="{{ route('admin-supplier') }}">
+                        <div class="card text-center">
+                            <div class="body">
+                                <p class="m-b-20"><i class="zmdi zmdi-assignment zmdi-hc-3x col-blue"></i></p>
+                                <span>TOTAL SUPPLIER</span>
+                                <h3 class="m-b-0 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
+                                {{-- <h3 class="m-b-0 number count-to" data-from="0" data-to="{{  !empty($sales) ? $sales : 0 }}" data-speed="2000" data-fresh-interval="700">{{  !empty($sales) ? $sales : 0 }}</h3> --}}
+                                {{-- <small class="text-muted">88% lower growth</small> --}}
                             </div>
                         </div>
                     </a>
@@ -64,19 +77,6 @@
                                 <span>TOTAL PRODUCT</span>
                                 <h3 class="m-b-0 number count-to" data-from="0" data-to="{{  !empty($product) ? $product : 0 }}" data-speed="2000" data-fresh-interval="700">{{  !empty($product) ? $product : 0 }}</h3>
                                 {{-- <small class="text-muted">27% lower growth</small> --}}
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <a href="{{ route('admin-sales') }}">
-                        <div class="card text-center">
-                            <div class="body">
-                                <p class="m-b-20"><i class="zmdi zmdi-assignment zmdi-hc-3x col-blue"></i></p>
-                                <span>TOTAL SALES</span>
-                                <h3 class="m-b-0 number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="700">0</h3>
-                                {{-- <h3 class="m-b-0 number count-to" data-from="0" data-to="{{  !empty($sales) ? $sales : 0 }}" data-speed="2000" data-fresh-interval="700">{{  !empty($sales) ? $sales : 0 }}</h3> --}}
-                                {{-- <small class="text-muted">88% lower growth</small> --}}
                             </div>
                         </div>
                     </a>

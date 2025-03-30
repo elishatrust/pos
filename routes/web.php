@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
@@ -40,12 +41,12 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::get('category-edit/{id}', [CategoryController::class, 'editCategory'])->name('admin-category-edit');
      Route::get('category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin-category-delete');
 
-     ## Warehouse
-     Route::get('/warehouse', [WarehouseController::class, 'list'])->name('admin-warehouse');
-     Route::get('/warehouse-view', [WarehouseController::class, 'listView'])->name('admin-warehouse-view');
-     Route::post('/warehouse/save', [WarehouseController::class, 'saveWarehouse'])->name('admin-warehouse-save');
-     Route::get('/warehouse-edit/{id}', [WarehouseController::class, 'editWarehouse'])->name('admin-warehouse-edit');
-     Route::get('/warehouse-delete/{id}', [WarehouseController::class, 'deleteWarehouse']);
+     ## Supplier
+     Route::get('/supplier', [WarehouseController::class, 'list'])->name('admin-supplier');
+     Route::get('/supplier-view', [WarehouseController::class, 'listView'])->name('admin-supplier-view');
+     Route::post('/supplier/save', [WarehouseController::class, 'saveSupplier'])->name('admin-supplier-save');
+     Route::get('/supplier-edit/{id}', [WarehouseController::class, 'editSupplier'])->name('admin-supplier-edit');
+     Route::get('/supplier-delete/{id}', [WarehouseController::class, 'deleteSupplier']);
 
      ## Sales
      Route::get('/sales', [SalesController::class, 'list'])->name('admin-sales');
@@ -67,7 +68,15 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::post('expense/save', [ExpenseController::class, 'saveExpense'])->name('admin-expense-save');
      Route::get('expense-edit/{id}', [ExpenseController::class, 'editExpense'])->name('admin-expense-edit');
      Route::get('expense-delete/{id}', [ExpenseController::class, 'deleteExpense'])->name('admin-expense-delete');
- });
+ 
+     # Purchase
+     Route::get('purchase', [PurchaseController::class, 'list'])->name('admin-purchase');
+     Route::get('purchase-view', [PurchaseController::class, 'listView'])->name('admin-purchase-view');
+     Route::post('purchase/save', [PurchaseController::class, 'savePurchase'])->name('admin-purchase-save');
+     Route::get('purchase-edit/{id}', [PurchaseController::class, 'editPurchase'])->name('admin-purchase-edit');
+     Route::get('purchase-delete/{id}', [PurchaseController::class, 'deletePurchase'])->name('admin-purchase-delete');
+
+});
  
 
 
