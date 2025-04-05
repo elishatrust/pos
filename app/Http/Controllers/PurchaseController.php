@@ -42,7 +42,7 @@ class PurchaseController extends Controller
             
             $request->validate([
                 'supplier_id' => 'required|exists:warehouses,id',
-                'total_item' => 'required|integer|min:0',
+                'total_item' => 'required|numeric|min:0',
                 'total_price' => 'required|numeric|min:0',
                 'discount' => 'required|numeric|min:0|max:1000',
                 'showStatus' => 'required|in:0,1',

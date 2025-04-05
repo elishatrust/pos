@@ -54,6 +54,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::post('/sales/save', [SalesController::class, 'saveSales'])->name('admin-sales-save');
      Route::get('/sales-edit/{id}', [SalesController::class, 'editSales'])->name('admin-sales-edit');
      Route::get('/sales-delete/{id}', [SalesController::class, 'deleteSales'])->name('admin-sales-delete');
+     Route::get('/sales-search_customer/{text}', [UserController::class,'searchCustomer'])->name('admin-sales-search_customer');
 
      # Product
      Route::get('product', [ProductController::class, 'list'])->name('admin-product');
@@ -92,7 +93,6 @@ Route::group(['middleware'=>'user'], function(){
 ## NORMAL USER
 
 ## Search Customer
-Route::get('/search_customer/{text}', [UserController::class,'searchCustomer']);
 Route::get('/search_product/{text}', [ProductController::class,'searchProduct']);
 
 

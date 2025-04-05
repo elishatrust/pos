@@ -10,7 +10,8 @@ class SaleModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'sale';
+    protected $table = 'sales';
+    protected $primaryKey = 'id';
 
     static public function getCountable()
     {

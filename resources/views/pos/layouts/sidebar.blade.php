@@ -271,11 +271,6 @@
                         <i class="zmdi zmdi-delicious"></i><span>Product</span>
                     </a>
                 </li>
-                <li class=" @if (Request::segment(2) == 'sales') active open @endif ">
-                    <a href="{{ route('admin-sales') }}">
-                        <i class="zmdi zmdi-shopping-basket"></i><span>Sales</span>
-                    </a>
-                </li>
                 <li class="header">TRANSACTION</li>
                 <li class=" @if (Request::segment(2) == 'expense') active open @endif ">
                     <a href="{{ route('admin-expense') }}">
@@ -285,6 +280,11 @@
                 <li class=" @if (Request::segment(2) == 'purchase') active open @endif ">
                     <a href="{{ route('admin-purchase') }}">
                         <i class="zmdi zmdi-redo"></i><span>Purchase</span>
+                    </a>
+                </li>
+                <li class=" @if (Request::segment(2) == 'sales') active open @endif ">
+                    <a href="{{ route('admin-sales') }}">
+                        <i class="zmdi zmdi-shopping-basket"></i><span>Sales</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">

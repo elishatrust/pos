@@ -5,22 +5,48 @@
             <tr>
                 <th>#</th>
                 <th>Supplier</th>
-                <th>Total Item</th>
-                <th>Total Price(TZS)</th>
-                <th>Discount</th>
+                <th>Items</th>
+                <th>Price</th>
+                <th>Discount(%)</th>
+                <th>NetDiscount</th>
+                <th>Total Price</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @php $n=1; @endphp
+            @php 
+                $n=1;
+                $AllTotalItem = 0; 
+                $AllTotalPrice = 0; 
+                $AllTotalDiscount = 0; 
+                $AllTotalNetDiscount = 0; 
+                $AllTotalPrice2 = 0; 
+
+            @endphp
+
             @foreach ($data as $item)
+
+            @php
+
+                $NetDiscount = ($item->total_price * $item->discount / 100);
+                $TotalPrice = ($item->total_price - $NetDiscount);
+
+                $AllTotalItem = $AllTotalItem + $item->total_item;
+                $AllTotalPrice = $AllTotalPrice + $item->total_price;
+                $AllTotalDiscount = $AllTotalDiscount + $item->discount;
+                $AllTotalNetDiscount = $AllTotalNetDiscount + $NetDiscount;
+                $AllTotalPrice2 = $AllTotalPrice2 + $TotalPrice;
+            @endphp
+
             <tr>
                 <td>{{ $n }}</td>
                 <td>{{ $item->supplier_name }}</td>
                 <td>{{ $item->total_item }}</td>
                 <td>{{ $item->total_price }}</td>
                 <td>{{ $item->discount }}</td>
+                <td>{{ $NetDiscount }}</td>
+                <td>{{ $TotalPrice }}</td>
                 <td>
                     @if (!empty($item->status==0))
                     <span class="badge badge-success m-l-10 hidden-sm-down">Active</span>
@@ -39,6 +65,16 @@
             </tr>
             @php $n++; @endphp
             @endforeach
+            
+            <tr style="font-weight: 900">
+                <td colspan="2">ALL TOTAL</td>
+                <td>{{ number_format($AllTotalItem,2) }}</td>
+                <td>{{ number_format($AllTotalPrice,2) }}</td>
+                <td>{{ number_format($AllTotalDiscount,2) }}</td>
+                <td>{{ number_format($AllTotalNetDiscount,2) }}</td>
+                <td>{{ number_format($AllTotalPrice2,2) }}</td>
+                <td colspan="2"></td>
+            </tr>
         </tbody>
     </table>
 </div>

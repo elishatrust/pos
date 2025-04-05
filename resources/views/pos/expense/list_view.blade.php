@@ -11,8 +11,11 @@
             </tr>
         </thead>
         <tbody>
-            @php $n=1; @endphp
+            @php $TotalAmount=0; $n=1; @endphp
             @foreach ($data as $item)
+            @php
+                $TotalAmount = $TotalAmount + $item->amount;
+            @endphp
             <tr>
                 <td>{{ $n }}</td>
                 <td>{{ $item->description }}</td>
@@ -35,6 +38,10 @@
             </tr>
             @php $n++; @endphp
             @endforeach
+            <tr style="font-weight: 900">
+                <td colspan="2">TOTAL</td>
+                <td colspan="3">{{ number_format($TotalAmount,2) }}</td>
+            </tr>
         </tbody>
     </table>
 </div>

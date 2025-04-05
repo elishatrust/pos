@@ -201,16 +201,25 @@ class UserController extends Controller
         $data = User::searchUser($query);
 
         $view = '';
-        if ($data) {            
-            foreach ($data as $val) {
-                $view .= '<a><li style="background-color: #dee2e6; color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" onclick="addText(\'' . $val->id . '\', \'' . $val->name . '\', \'' . $val->phone . '\')">'
-                .$val->name." ( ".$val->phone . ' ) </li></a>';
-            }
 
+        if ($data && count($data) > 0) {
+            foreach ($data as $val) {
+                $view .= '<a>
+                            <li style="background: #dee2e6; color: #000000; z-index:1000; border-bottom: 1px solid grey; padding: 5px 20px; list-style: none; cursor: pointer; width:100%;"
+                                onclick="addText(\'' . $val->id . '\', \'' . addslashes($val->name) . '\', \'' . $val->phone . '\')">'
+                                . htmlspecialchars($val->name) . " - " . htmlspecialchars($val->phone) . '
+                            </li>
+                        </a>';
+            }
         } else {
-            $view .= '<a><li style="background-color: #dee2e6;color:#000; border: 1px solid #dee2e6; padding: 5px; list-style: none; cursor: pointer; z-index:1;width:100%;" > No Customer Found. </li></a>';
+            $view .= '<a>
+                        <li style="background: #dee2e6; color: #000000; border-bottom: 1px solid grey; padding: 5px 20px; list-style: none; cursor: default; width:100%;">
+                            No Customer Found.
+                        </li>
+                    </a>';
         }
 
         echo $view;
     }
+
 }

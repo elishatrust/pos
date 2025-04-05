@@ -65,11 +65,12 @@ class User extends Authenticatable
     static public function searchUser($query)
     {
         return DB::table('users')->where(function ($q) use ($query) {
-                $q->where('name', 'LIKE', "%{$query}%")
-                ->orWhere('phone', 'LIKE', "%{$query}%");
+                $q->where('name', 'like', '%' .$query. '%')
+                ->orWhere('phone', 'like', '%' .$query. '%');
             })
             ->where('role', '!=', 1)
             ->where('archive', 0)
+            ->orderBy('id','desc')
             ->get();
     }
     static public function getCountable()

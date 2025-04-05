@@ -67,6 +67,29 @@ if (!Auth::check()) {
 <script src="{{ asset('assets/js/pages/index.js') }}"></script>
 
 <script>
+
+
+
+    // Auto-Logout After SomeTime
+    // let idleTime = 0;
+    // const idleLimit = 5 * 60 * 1000;
+
+    // function resetTimer() {
+    //     clearTimeout(window.idleTimer);
+    //     window.idleTimer = setTimeout(logoutUser, idleLimit);
+    // }
+
+    // function logoutUser() {
+    //     window.location.href = "{{ route('logout') }}";
+    // }
+    // ['mousemove', 'keydown', 'scroll', 'click'].forEach(evt => {
+    //     document.addEventListener(evt, resetTimer, false);
+    // });
+    // window.onload = resetTimer;
+
+
+
+    // Dashboard Clock
     function updateClock() {
         var now = new Date();
         var hours = now.getHours().toString().padStart(2, '0');
