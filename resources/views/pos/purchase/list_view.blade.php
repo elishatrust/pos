@@ -55,6 +55,9 @@
                     @endif
                 </td>
                 <td>
+                    <button class="badge badge-default btn-icon btn-icon-mini p-2" title="View Action"  onclick="ViewPurchase123({{$item->id}})">
+                        <a href="/admin/purchase-details/{{ $item->id }}"><i class="zmdi zmdi-eye col-amber"></i></a>
+                    </button>
                     <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Edit Action"  onclick="editPurchase({{$item->id}})">
                         <i class="zmdi zmdi-edit text-info"></i>
                     </button>

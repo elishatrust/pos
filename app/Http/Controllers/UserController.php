@@ -101,11 +101,13 @@ class UserController extends Controller
 
             else:
 
+                // if($password==null)$password=$password : Hash::make($password);
                 $saveData = [
                     'name' => $full_name,
                     'username' => $username,
                     'phone' => $phone,
                     'email' => $email,
+                    // 'password' => Hash::make($password),
                     'location' => $location,
                     'role' => $role,
                     'status' => $user_status,

@@ -97,7 +97,7 @@ class WarehouseController extends Controller
         }
     }
 
-    public function editWarehouse($id)
+    public function editSupplier($id)
     {
         $data = WarehouseModel::findWarehouse($id);
         return response()->json(['data'=>$data, 'id'=>Crypt::encrypt($id)]);

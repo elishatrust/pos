@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Title</th>
                 <th>Description</th>
                 <th>Amount(TZS)</th>
                 <th>Status</th>
@@ -18,6 +19,7 @@
             @endphp
             <tr>
                 <td>{{ $n }}</td>
+                <td>{{ $item->title }}</td>
                 <td>{{ $item->description }}</td>
                 <td>{{ $item->amount }}</td>
                 <td>
@@ -39,7 +41,7 @@
             @php $n++; @endphp
             @endforeach
             <tr style="font-weight: 900">
-                <td colspan="2">TOTAL</td>
+                <td colspan="3">TOTAL</td>
                 <td colspan="3">{{ number_format($TotalAmount,2) }}</td>
             </tr>
         </tbody>

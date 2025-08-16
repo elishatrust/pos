@@ -35,6 +35,7 @@ class ExpenseController extends Controller
             DB::beginTransaction();
 
             $hidden_id = $request->input('hidden_id');
+            $title = $request->input('title');
             $description = $request->input('description');
             $amount = $request->input('amount');
             $showStatus = $request->input('showStatus');
@@ -42,6 +43,7 @@ class ExpenseController extends Controller
 
             if(empty($hidden_id)):
                 $saveData = [
+                    'title' => $title,
                     'description' => $description,
                     'amount' => $amount,
                     'status' => $showStatus,
@@ -59,6 +61,7 @@ class ExpenseController extends Controller
             else:
 
                 $saveData = [
+                    'title' => $title,
                     'description' => $description,
                     'amount' => $amount,
                     'status' => $showStatus,

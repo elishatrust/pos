@@ -40,6 +40,12 @@
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
+                            <label for="">Title/name <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="text" id="title" name="title" class="form-control" placeholder="Fare" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
                             <label for="">Description <span class="text-danger">*</span></label>
                             <div class="form-group">
                                 <textarea name="description" id="description" cols="30" rows="3" class="form-control" placeholder="Type here.." required></textarea>
@@ -140,6 +146,7 @@ function editExpense(id){
 
             var rowData=data.data;
 
+            $("#title").val(rowData.title);
             $("#description").val(rowData.description);
             $("#amount").val(rowData.amount);
             $("#showStatus").val(rowData.status);

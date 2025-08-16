@@ -77,6 +77,11 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
      Route::get('purchase-edit/{id}', [PurchaseController::class, 'editPurchase'])->name('admin-purchase-edit');
      Route::get('purchase-delete/{id}', [PurchaseController::class, 'deletePurchase'])->name('admin-purchase-delete');
 
+     # Purchase Details
+     Route::get('purchase-details/{id}', [PurchaseController::class, 'purchaseDetails'])->name('admin-purchase-details');
+     // Route::get('purchase-details-view', [PurchaseController::class, 'purchaseDetailsView1234'])->name('admin-purchase-details-view');
+     Route::post('purchase-details-save', [PurchaseController::class, 'savePurchaseDetails'])->name('admin-purchase-details-save');
+
 });
  
 

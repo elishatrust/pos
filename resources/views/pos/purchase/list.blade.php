@@ -27,15 +27,14 @@
 
 
 
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true" data-keyboard="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="title" id="largeModalLabel">Purchase </h4><strong class="text-danger float-right">Required *</strong>
             </div>
             <div class="modal-body">
-
-                <form id="form" onsubmit="save(event)" enctype="form-data/multipart">
+                <form id="form" onsubmit="save(event)" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
                     <div class="row">
@@ -90,6 +89,7 @@
 $(document).ready(function () {
     getView();
     closeModel();
+    getPurchaseDetailsView();
 });
 
 
@@ -166,7 +166,6 @@ function editPurchase(id){
     });
 }
 
-
 function save(e) {
     e.preventDefault();
 
@@ -193,6 +192,25 @@ function save(e) {
             $("#submitBtn").html("Save")
         }
     });
+}
+
+function ViewPurchase(id){
+    // $('#purchaseModal').modal('show');
+
+    jQuery.ajax({
+        type: "GET",
+        url : "/admin/purchase-details-view/"+id,
+        dataType : "json",
+        success : function(data) {
+            var rowData = data.purchase;
+            // $('#supplier_data').html(rowData.name);
+            // $('#item_data').html(rowData.total_item);
+            // $('#price_data').html(rowData.total_price);
+            // $('#created_at_data').html(rowData.created_at);
+            
+        }
+    })
+
 }
 </script>
 @endsection

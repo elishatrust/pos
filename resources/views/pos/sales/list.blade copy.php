@@ -34,7 +34,7 @@
                 <h4 class="title" id="largeModalLabel">Sale Order </h4><strong class="text-danger float-right">Required *</strong>
             </div>
             <div class="modal-body">
-                <form id="form" onsubmit="save(event)" enctype="form-data/multipart">
+                <form id="form" onsubmit="save(event)" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" class="form-control" id="hidden_id" name="hidden_id" >
 

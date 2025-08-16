@@ -23,18 +23,18 @@
             @foreach ($data as $item)
             <tr>
                 <td>{{ $n }}</td>
-                <td>
+                <td title="Barcode">
                     {!! $item->bar_code !!}
-                    <p>P - {{ $item->barcode }}</p>
+                    <p>PQ{{ $item->barcode }}</p>
                 </td>
-                <td>{{ $item->batch }}</td>
-                <td>{{ $item->product }}</td>
-                <td>{{ $item->category_name }}</td>
-                <td>{{ number_format($item->purchase_price) }}</td>
-                <td>{{ number_format($item->selling_price) }}</td>
-                <td>{{ number_format($item->discount) }}</td>
-                <td>{{ $item->stock }}</td>
-                <td>
+                <td title="Batch">{{ $item->batch }}</td>
+                <td title="Product">{{ $item->product }}</td>
+                <td title="Category">{{ $item->category_name }}</td>
+                <td title="Purchase Price">{{ number_format($item->purchase_price) }}</td>
+                <td title="Selling Price">{{ number_format($item->selling_price) }}</td>
+                <td title="Discount">{{ number_format($item->discount) }}</td>
+                <td title="Stock">{{ $item->stock }}</td>
+                <td title="Status">
                     @if ($item->stock > 0)
                     <span class="badge badge-success m-l-10 hidden-sm-down p-2">Instock</span>
                     @else
@@ -45,7 +45,7 @@
                     <span>{{ $item->user_name }}</span>
                     <p class="">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
                 </td> --}}
-                <td>
+                <td title="Action">
                     <button class="badge badge-default btn-icon btn-icon-mini p-2" title="Edit Action"  onclick="editProduct({{$item->id}})">
                         <i class="zmdi zmdi-edit text-info"></i>
                     </button>

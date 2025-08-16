@@ -284,7 +284,7 @@
                 </li>
                 <li class=" @if (Request::segment(2) == 'sales') active open @endif ">
                     <a href="{{ route('admin-sales') }}">
-                        <i class="zmdi zmdi-shopping-basket"></i><span>Sales</span>
+                        <i class="zmdi zmdi-shopping-basket"></i><span>Sales List</span>
                     </a>
                 </li>
                 <li class=" @if (Request::segment(2) == 'orders') active open @endif ">

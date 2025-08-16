@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductModel;
+use App\Models\PurchaseDetailsModel;
 use Illuminate\Http\Request;
 use App\Models\PurchaseModel;
 use App\Models\WarehouseModel;
@@ -133,6 +135,121 @@ class PurchaseController extends Controller
 
     }
 
+    public function purchaseDetails($purchase_id)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        
+        $data = [
+            'title' => 'POS-SYSTEM',
+            'header' => 'Purchase Details',
+        ];
 
+        // $purchase_id = decrypt($id);
+        $products = ProductModel::query()->where('archive',0)->where('status',0)->get();  
+        
+        $purchase_details = PurchaseDetailsModel::get();  
 
+            // dd($purchase_details);
+
+        return view('pos.purchase.purchase_details', compact('data','products','purchase_id','purchase_details'));
+
+    }
+
+    public function purchaseDetailsView()
+    {
+        // $purchase = PurchaseModel::query()
+        //     ->join('warehouses', 'purchases.supplier_id', '=', 'warehouses.id')
+        //     ->where('purchases.id', $id)
+        //     ->where('purchases.status', 0)
+        //     ->where('purchases.archive', 0)
+        //     ->first();
+
+        // if($purchase){
+        //     return response()->json(['status'=>200,'purchase'=>$purchase]);
+        // }else{
+        //     $message = 'No details available';
+        //     return response()->json(['status'=>450,'purchase'=>$message]);
+        // }
+        
+        // $suppliers = WarehouseModel::query()->where('archive',0)->where('status',0)->get(); 
+
+        return view('pos.purchase.purchase_details_view');
+    }
+
+    public function savePurchaseDetails(Request $request)
+    {   
+        try {
+            
+            $request->validate([
+                'purchase_id' => 'required|exists:purchases,id',
+                'product_id' => 'required|exists:products,id',
+                'purchase_price' => 'required|numeric|min:0',
+                'amount' => 'required|numeric|min:0',
+                'sub_total' => 'required|numeric|min:0',
+                'showStatus' => 'required|in:0,1',
+                'hidden_id' => 'nullable',
+            ]);           
+
+            DB::beginTransaction();
+
+            $hidden_id = $request->input('hidden_id');
+            $purchase_id = $request->input('purchase_id');
+            $product_id = $request->input('product_id');
+            $purchase_price = $request->input('purchase_price');
+            $amount = $request->input('amount');
+            $sub_total = $request->input('sub_total');
+            $showStatus = $request->input('showStatus');
+            $user_id = Auth::user()->id;
+
+            if(empty($hidden_id)):
+                $saveData = [
+                    'purchase_id' => $purchase_id,
+                    'product_id' => $product_id,
+                    'purchasePrice' => $purchase_price,
+                    'amount' => $amount,
+                    'sub_total' => $sub_total,
+                    'status' => $showStatus,
+                    'created_by' => $user_id,
+                    'updated_by' => $user_id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+
+                ## Save data
+                DB::table('purchase_details')->insertGetId($saveData);
+                $message='Purchase details saved successfully';
+
+            else:
+
+                $saveData = [
+                    'product_id' => $product_id,
+                    'purchasePrice' => $purchase_price,
+                    'amount' => $amount,
+                    'sub_total' => $sub_total,
+                    'status' => $showStatus,
+                    'updated_by' => $user_id,
+                ];
+
+                $condition=[
+                    'id'=>Crypt::decrypt($hidden_id),
+                    'archive'=>0
+                ];
+
+                ## Save data
+                DB::table('purchase_details')->where($condition)->update($saveData);
+                $message='Purchase details updated successfully';
+
+            endif;
+
+            DB::commit();
+
+            return response()->json(['status' => 200, 'message' => $message]);
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            return response()->json(['status' => 500, 'message' => $e->getMessage()]);
+        }
+    }
 }
